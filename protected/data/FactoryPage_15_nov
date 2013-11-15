@@ -1,0 +1,1 @@
+tblProyectosSELECT * FROM FactoryPage.tblFases;

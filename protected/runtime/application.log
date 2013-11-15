@@ -166,3 +166,272 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/FactoryPage/index.php?r=usurios
 ---
+2013/11/14 09:14:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "proyectos/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/index')
+#1 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/FactoryPage/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/index
+HTTP_REFERER=http://localhost/FactoryPage/
+---
+2013/11/14 09:52:34 [error] [exception.CException] exception 'CException' with message 'Property "Proyectos.dropdown" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(143): CComponent->__get('dropdown')
+#1 /var/www/yii/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('dropdown')
+#2 /var/www/yii/framework/web/helpers/CHtml.php(1565): CHtml::resolveValue(Object(Proyectos), 'dropdown')
+#3 /var/www/yii/framework/web/widgets/CActiveForm.php(763): CHtml::activeDropDownList(Object(Proyectos), 'dropdown', Array, Array)
+#4 /var/www/FactoryPage/protected/extensions/bootstrap/widgets/input/TbInputVertical.php(60): CActiveForm->dropDownList(Object(Proyectos), 'dropdown', Array, Array)
+#5 /var/www/FactoryPage/protected/extensions/bootstrap/widgets/input/TbInput.php(201): TbInputVertical->dropDownList()
+#6 /var/www/yii/framework/web/CBaseController.php(173): TbInput->run()
+#7 /var/www/FactoryPage/protected/extensions/bootstrap/widgets/TbActiveForm.php(497): CBaseController->widget('bootstrap.widge...', Array)
+#8 /var/www/FactoryPage/protected/extensions/bootstrap/widgets/TbActiveForm.php(112): TbActiveForm->inputRow('dropdownlist', Object(Proyectos), 'dropdown', Array, Array)
+#9 /var/www/FactoryPage/protected/views/proyectos/_form.php(31): TbActiveForm->dropDownListRow(Object(Proyectos), 'dropdown', Array)
+#10 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#11 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#12 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#13 /var/www/FactoryPage/protected/views/proyectos/create.php(15): CController->renderPartial('_form', Array)
+#14 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#15 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#16 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#17 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#18 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): CController->render('create', Array)
+#19 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#20 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#21 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#23 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#27 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#29 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#30 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#31 /var/www/FactoryPage/index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2013/11/14 10:20:28 [error] [php] Array to string conversion (/var/www/FactoryPage/protected/views/proyectos/_form.php:31)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): ProyectosController->renderFile()
+#1 /var/www/FactoryPage/protected/views/proyectos/create.php(15): ProyectosController->renderPartial()
+#2 /var/www/yii/framework/web/CBaseController.php(126): require()
+#3 /var/www/yii/framework/web/CBaseController.php(95): ProyectosController->renderInternal()
+#4 /var/www/yii/framework/web/CController.php(869): ProyectosController->renderFile()
+#5 /var/www/yii/framework/web/CController.php(782): ProyectosController->renderPartial()
+#6 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): ProyectosController->render()
+#7 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#8 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProyectosController->runAction()
+#10 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProyectosController->filterAccessControl()
+#13 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/yii/framework/web/CController.php(265): ProyectosController->runActionWithFilters()
+#16 /var/www/yii/framework/web/CWebApplication.php(282): ProyectosController->run()
+#17 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#19 /var/www/FactoryPage/index.php(13): CWebApplication->run()
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+in /var/www/FactoryPage/protected/views/proyectos/_form.php (31)
+in /var/www/FactoryPage/protected/views/proyectos/create.php (15)
+in /var/www/FactoryPage/protected/controllers/ProyectosController.php (78)
+2013/11/14 11:32:38 [error] [exception.CException] exception 'CException' with message 'Property "Proyectos.parti_sector" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(143): CComponent->__get('parti_sector')
+#1 /var/www/yii/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('parti_sector')
+#2 /var/www/yii/framework/web/helpers/CHtml.php(1565): CHtml::resolveValue(Object(Proyectos), 'parti_sector')
+#3 /var/www/yii/framework/web/widgets/CActiveForm.php(763): CHtml::activeDropDownList(Object(Proyectos), 'parti_sector', Array, Array)
+#4 /var/www/FactoryPage/protected/views/proyectos/_form.php(33): CActiveForm->dropDownList(Object(Proyectos), 'parti_sector', Array, Array)
+#5 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#6 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#7 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#8 /var/www/FactoryPage/protected/views/proyectos/create.php(15): CController->renderPartial('_form', Array)
+#9 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#10 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#11 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#12 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#13 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): CController->render('create', Array)
+#14 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#15 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#18 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#22 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#24 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#25 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#26 /var/www/FactoryPage/index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2013/11/14 11:37:08 [error] [exception.CException] exception 'CException' with message 'Property "Proyectos.parti_sector" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(143): CComponent->__get('parti_sector')
+#1 /var/www/yii/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('parti_sector')
+#2 /var/www/yii/framework/web/helpers/CHtml.php(1565): CHtml::resolveValue(Object(Proyectos), 'parti_sector')
+#3 /var/www/yii/framework/web/widgets/CActiveForm.php(763): CHtml::activeDropDownList(Object(Proyectos), 'parti_sector', Array, Array)
+#4 /var/www/FactoryPage/protected/views/proyectos/_form.php(33): CActiveForm->dropDownList(Object(Proyectos), 'parti_sector', Array, Array)
+#5 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#6 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#7 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#8 /var/www/FactoryPage/protected/views/proyectos/create.php(15): CController->renderPartial('_form', Array)
+#9 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#10 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#11 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#12 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#13 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): CController->render('create', Array)
+#14 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#15 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#18 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#22 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#24 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#25 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#26 /var/www/FactoryPage/index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2013/11/14 11:46:23 [error] [exception.CException] exception 'CException' with message 'Property "Proyectos.date_from" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(143): CComponent->__get('date_from')
+#1 /var/www/yii/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('date_from')
+#2 /var/www/yii/framework/web/helpers/CHtml.php(1980): CHtml::resolveValue(Object(Proyectos), 'date_from')
+#3 /var/www/yii/framework/web/helpers/CHtml.php(1257): CHtml::activeInputField('text', Object(Proyectos), 'date_from', Array)
+#4 /var/www/yii/framework/zii/widgets/jui/CJuiDatePicker.php(82): CHtml::activeTextField(Object(Proyectos), 'date_from', Array)
+#5 /var/www/yii/framework/web/CBaseController.php(173): CJuiDatePicker->run()
+#6 /var/www/FactoryPage/protected/views/proyectos/_form.php(27): CBaseController->widget('zii.widgets.jui...', Array)
+#7 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#8 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#9 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#10 /var/www/FactoryPage/protected/views/proyectos/create.php(15): CController->renderPartial('_form', Array)
+#11 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#12 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#13 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#14 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#15 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): CController->render('create', Array)
+#16 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#17 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#24 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#26 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#27 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#28 /var/www/FactoryPage/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2013/11/14 11:46:32 [error] [exception.CException] exception 'CException' with message 'Property "Proyectos.date_from" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(143): CComponent->__get('date_from')
+#1 /var/www/yii/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('date_from')
+#2 /var/www/yii/framework/web/helpers/CHtml.php(1980): CHtml::resolveValue(Object(Proyectos), 'date_from')
+#3 /var/www/yii/framework/web/helpers/CHtml.php(1257): CHtml::activeInputField('text', Object(Proyectos), 'date_from', Array)
+#4 /var/www/yii/framework/zii/widgets/jui/CJuiDatePicker.php(82): CHtml::activeTextField(Object(Proyectos), 'date_from', Array)
+#5 /var/www/yii/framework/web/CBaseController.php(173): CJuiDatePicker->run()
+#6 /var/www/FactoryPage/protected/views/proyectos/_form.php(27): CBaseController->widget('zii.widgets.jui...', Array)
+#7 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#8 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#9 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#10 /var/www/FactoryPage/protected/views/proyectos/create.php(15): CController->renderPartial('_form', Array)
+#11 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#12 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#13 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#14 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#15 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): CController->render('create', Array)
+#16 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#17 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#24 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#26 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#27 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#28 /var/www/FactoryPage/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2013/11/14 14:28:29 [error] [exception.CException] exception 'CException' with message 'Property "CJuiDatePicker.class" is not defined.' in /var/www/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/yii/framework/web/CWidgetFactory.php(161): CComponent->__set('class', 'span5')
+#1 /var/www/yii/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(ProyectosController), 'zii.widgets.jui...', Array)
+#2 /var/www/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.jui...', Array)
+#3 /var/www/FactoryPage/protected/views/proyectos/_form.php(29): CBaseController->widget('zii.widgets.jui...', Array)
+#4 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#5 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#6 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#7 /var/www/FactoryPage/protected/views/proyectos/create.php(15): CController->renderPartial('_form', Array)
+#8 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#9 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#10 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#11 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#12 /var/www/FactoryPage/protected/controllers/ProyectosController.php(78): CController->render('create', Array)
+#13 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionCreate()
+#14 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#24 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#25 /var/www/FactoryPage/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2013/11/14 14:53:47 [error] [exception.CException] exception 'CException' with message 'Alias "zii.widgets.TbGridView" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/yii/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/yii/framework/web/CWidgetFactory.php(146): YiiBase::import('zii.widgets.TbG...', true)
+#1 /var/www/yii/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(ProyectosController), 'zii.widgets.TbG...', Array)
+#2 /var/www/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.TbG...', Array)
+#3 /var/www/FactoryPage/protected/views/proyectos/admin.php(62): CBaseController->widget('zii.widgets.TbG...', Array)
+#4 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#5 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#6 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#7 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#8 /var/www/FactoryPage/protected/controllers/ProyectosController.php(148): CController->render('admin', Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProyectosController->actionAdmin()
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/admin')
+#20 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#21 /var/www/FactoryPage/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---

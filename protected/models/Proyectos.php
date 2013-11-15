@@ -10,9 +10,9 @@
  * @property string $proFechaPostulacion
  * @property string $proFechaInicio
  * @property string $proFechaFinal
- * @property string $proCantidadUsuarios
- * @property string $proCantidadMaximoUsuarios
- * @property string $proCantidadMinimaUsuarios
+ * @property integer $proCantidadUsuarios
+ * @property integer $proCantidadMaximoUsuarios
+ * @property integer $proCantidadMinimaUsuarios
  * @property integer $proEstado
  * @property integer $tblFases_fasId
  *
@@ -48,9 +48,11 @@ class Proyectos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('proId, proNombre, proDescripcion, proFechaPostulacion, proCantidadMaximoUsuarios, proCantidadMinimaUsuarios, tblFases_fasId', 'required'),
-			array('proId, proEstado, tblFases_fasId', 'numerical', 'integerOnly'=>true),
-			array('proNombre, proDescripcion, proFechaPostulacion, proFechaInicio, proFechaFinal, proCantidadUsuarios, proCantidadMaximoUsuarios, proCantidadMinimaUsuarios', 'length', 'max'=>45),
+			array('proNombre, proDescripcion, proFechaPostulacion, proCantidadMaximoUsuarios, proCantidadMinimaUsuarios, tblFases_fasId', 'required'),
+			array('proCantidadUsuarios, proCantidadMaximoUsuarios, proCantidadMinimaUsuarios, proEstado, tblFases_fasId', 'numerical', 'integerOnly'=>true),
+			array('proNombre', 'length', 'max'=>60),
+			array('proDescripcion', 'length', 'max'=>250),
+			array('proFechaPostulacion, proFechaInicio, proFechaFinal', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('proId, proNombre, proDescripcion, proFechaPostulacion, proFechaInicio, proFechaFinal, proCantidadUsuarios, proCantidadMaximoUsuarios, proCantidadMinimaUsuarios, proEstado, tblFases_fasId', 'safe', 'on'=>'search'),
@@ -77,16 +79,16 @@ class Proyectos extends CActiveRecord
 	{
 		return array(
 			'proId' => 'Pro',
-			'proNombre' => 'Pro Nombre',
-			'proDescripcion' => 'Pro Descripcion',
-			'proFechaPostulacion' => 'Pro Fecha Postulacion',
-			'proFechaInicio' => 'Pro Fecha Inicio',
-			'proFechaFinal' => 'Pro Fecha Final',
-			'proCantidadUsuarios' => 'Pro Cantidad Usuarios',
-			'proCantidadMaximoUsuarios' => 'Pro Cantidad Maximo Usuarios',
-			'proCantidadMinimaUsuarios' => 'Pro Cantidad Minima Usuarios',
-			'proEstado' => 'Pro Estado',
-			'tblFases_fasId' => 'Tbl Fases Fas',
+			'proNombre' => 'Nombre',
+			'proDescripcion' => 'Descripcion',
+			'proFechaPostulacion' => 'Fecha de Postulacion',
+			'proFechaInicio' => 'Fecha de Inicio',
+			'proFechaFinal' => 'Fecha Final',
+			'proCantidadUsuarios' => 'Cantidad de Usuarios',
+			'proCantidadMaximoUsuarios' => 'Cantidad Maximo de Usuarios',
+			'proCantidadMinimaUsuarios' => 'Cantidad Minima de Usuarios',
+			'proEstado' => 'Estado',
+			'tblFases_fasId' => 'Fase',
 		);
 	}
 
@@ -107,9 +109,9 @@ class Proyectos extends CActiveRecord
 		$criteria->compare('proFechaPostulacion',$this->proFechaPostulacion,true);
 		$criteria->compare('proFechaInicio',$this->proFechaInicio,true);
 		$criteria->compare('proFechaFinal',$this->proFechaFinal,true);
-		$criteria->compare('proCantidadUsuarios',$this->proCantidadUsuarios,true);
-		$criteria->compare('proCantidadMaximoUsuarios',$this->proCantidadMaximoUsuarios,true);
-		$criteria->compare('proCantidadMinimaUsuarios',$this->proCantidadMinimaUsuarios,true);
+		$criteria->compare('proCantidadUsuarios',$this->proCantidadUsuarios);
+		$criteria->compare('proCantidadMaximoUsuarios',$this->proCantidadMaximoUsuarios);
+		$criteria->compare('proCantidadMinimaUsuarios',$this->proCantidadMinimaUsuarios);
 		$criteria->compare('proEstado',$this->proEstado);
 		$criteria->compare('tblFases_fasId',$this->tblFases_fasId);
 

@@ -1,279 +1,535 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+CREATE DATABASE  IF NOT EXISTS `performance_schema` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `performance_schema`;
+-- MySQL dump 10.13  Distrib 5.5.34, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: performance_schema
+-- ------------------------------------------------------
+-- Server version	5.5.34-0ubuntu0.13.04.1
 
-DROP SCHEMA IF EXISTS `FactoryPage` ;
-CREATE SCHEMA IF NOT EXISTS `FactoryPage` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
-USE `FactoryPage` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblControladores`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblControladores` ;
+--
+-- Table structure for table `events_waits_summary_by_thread_by_event_name`
+--
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblControladores` (
-  `conId` INT(11) NOT NULL AUTO_INCREMENT ,
-  `conNombre` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  PRIMARY KEY (`conId`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 5
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+DROP TABLE IF EXISTS `events_waits_summary_by_thread_by_event_name`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_waits_summary_by_thread_by_event_name` (
+  `THREAD_ID` int(11) NOT NULL,
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `COUNT_STAR` bigint(20) unsigned NOT NULL,
+  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `events_waits_summary_by_thread_by_event_name`
+--
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblAcciones`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblAcciones` ;
+LOCK TABLES `events_waits_summary_by_thread_by_event_name` WRITE;
+/*!40000 ALTER TABLE `events_waits_summary_by_thread_by_event_name` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events_waits_summary_by_thread_by_event_name` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblAcciones` (
-  `accId` INT(11) NOT NULL AUTO_INCREMENT ,
-  `accNombre` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  `accControladorId` INT(11) NOT NULL COMMENT '\n' ,
-  PRIMARY KEY (`accId`) ,
-  INDEX `accion_controlador_idx` (`accControladorId` ASC) ,
-  CONSTRAINT `fkAccionControlador`
-    FOREIGN KEY (`accControladorId` )
-    REFERENCES `FactoryPage`.`tblControladores` (`conId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 7
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+--
+-- Table structure for table `events_waits_history`
+--
 
+DROP TABLE IF EXISTS `events_waits_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_waits_history` (
+  `THREAD_ID` int(11) NOT NULL,
+  `EVENT_ID` bigint(20) unsigned NOT NULL,
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `SOURCE` varchar(64) DEFAULT NULL,
+  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
+  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
+  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
+  `SPINS` int(10) unsigned DEFAULT NULL,
+  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
+  `OBJECT_NAME` varchar(512) DEFAULT NULL,
+  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL,
+  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
+  `OPERATION` varchar(16) NOT NULL,
+  `NUMBER_OF_BYTES` bigint(20) unsigned DEFAULT NULL,
+  `FLAGS` int(10) unsigned DEFAULT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblRoles`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblRoles` ;
+--
+-- Dumping data for table `events_waits_history`
+--
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblRoles` (
-  `rolId` INT(11) NOT NULL AUTO_INCREMENT ,
-  `rolNombre` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  `rolEstado` TINYINT(4) NOT NULL DEFAULT '1' ,
-  PRIMARY KEY (`rolId`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 8
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+LOCK TABLES `events_waits_history` WRITE;
+/*!40000 ALTER TABLE `events_waits_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events_waits_history` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `cond_instances`
+--
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblPermisos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblPermisos` ;
+DROP TABLE IF EXISTS `cond_instances`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cond_instances` (
+  `NAME` varchar(128) NOT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblPermisos` (
-  `perId` INT(11) NOT NULL AUTO_INCREMENT ,
-  `perRolesId` INT(11) NOT NULL ,
-  `perControllerId` INT(11) NOT NULL ,
-  `perAccion` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  `perEstado` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
-  PRIMARY KEY (`perId`) ,
-  INDEX `permisos_roles_idx` (`perRolesId` ASC) ,
-  INDEX `permisos_controllers_idx` (`perControllerId` ASC) ,
-  CONSTRAINT `fkpermisosControllers`
-    FOREIGN KEY (`perControllerId` )
-    REFERENCES `FactoryPage`.`tblControladores` (`conId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fkPermisosRoles`
-    FOREIGN KEY (`perRolesId` )
-    REFERENCES `FactoryPage`.`tblRoles` (`rolId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 26
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+--
+-- Dumping data for table `cond_instances`
+--
 
+LOCK TABLES `cond_instances` WRITE;
+/*!40000 ALTER TABLE `cond_instances` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cond_instances` ENABLE KEYS */;
+UNLOCK TABLES;
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblUsuarios`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblUsuarios` ;
+--
+-- Table structure for table `setup_timers`
+--
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblUsuarios` (
-  `usuId` INT(11) NOT NULL AUTO_INCREMENT ,
-  `usuNombre` VARCHAR(45) NOT NULL ,
-  `usuApellido` VARCHAR(45) NOT NULL ,
-  `usuTelefono` VARCHAR(45) NULL ,
-  `usuEmail` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  `usuUsuario` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  `usuPassword` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
-  `usuRole` INT(11) NOT NULL ,
-  `usuEstado` TINYINT(4) NOT NULL DEFAULT '1' ,
-  `usuImagen` VARCHAR(255) NULL ,
-  PRIMARY KEY (`usuId`) ,
-  INDEX `usuarios_roles_idx` (`usuRole` ASC) ,
-  CONSTRAINT `fkUsuariosRoles`
-    FOREIGN KEY (`usuRole` )
-    REFERENCES `FactoryPage`.`tblRoles` (`rolId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+DROP TABLE IF EXISTS `setup_timers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `setup_timers` (
+  `NAME` varchar(64) NOT NULL,
+  `TIMER_NAME` enum('CYCLE','NANOSECOND','MICROSECOND','MILLISECOND','TICK') NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `setup_timers`
+--
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblCategorias`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblCategorias` ;
+LOCK TABLES `setup_timers` WRITE;
+/*!40000 ALTER TABLE `setup_timers` DISABLE KEYS */;
+INSERT INTO `setup_timers` VALUES ('wait','CYCLE');
+/*!40000 ALTER TABLE `setup_timers` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblCategorias` (
-  `catId` INT NOT NULL AUTO_INCREMENT ,
-  `catCategoria` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`catId`) )
-ENGINE = InnoDB;
+--
+-- Table structure for table `mutex_instances`
+--
 
+DROP TABLE IF EXISTS `mutex_instances`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mutex_instances` (
+  `NAME` varchar(128) NOT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL,
+  `LOCKED_BY_THREAD_ID` int(11) DEFAULT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblArticulos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblArticulos` ;
+--
+-- Dumping data for table `mutex_instances`
+--
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblArticulos` (
-  `artId` INT NOT NULL AUTO_INCREMENT ,
-  `artNombre` VARCHAR(45) NOT NULL ,
-  `artTitulo` VARCHAR(45) NOT NULL ,
-  `artContenido` TEXT NOT NULL ,
-  `artAutor` INT(11) NULL ,
-  `artModificador` INT(11) NULL ,
-  `artCategorias` INT NOT NULL ,
-  `artEstado` TINYINT(1) NOT NULL DEFAULT 0 ,
-  PRIMARY KEY (`artId`) ,
-  INDEX `fkArticulosAutor` (`artAutor` ASC) ,
-  INDEX `fkArticulosModificador` (`artModificador` ASC) ,
-  INDEX `fkArticulosCategorias` (`artCategorias` ASC) ,
-  CONSTRAINT `fkArticulosAutor`
-    FOREIGN KEY (`artAutor` )
-    REFERENCES `FactoryPage`.`tblUsuarios` (`usuId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fkArticulosModificador`
-    FOREIGN KEY (`artModificador` )
-    REFERENCES `FactoryPage`.`tblUsuarios` (`usuId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fkArticulosCategorias`
-    FOREIGN KEY (`artCategorias` )
-    REFERENCES `FactoryPage`.`tblCategorias` (`catId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = '\n';
+LOCK TABLES `mutex_instances` WRITE;
+/*!40000 ALTER TABLE `mutex_instances` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mutex_instances` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `threads`
+--
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblFases`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblFases` ;
+DROP TABLE IF EXISTS `threads`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `threads` (
+  `THREAD_ID` int(11) NOT NULL,
+  `PROCESSLIST_ID` int(11) DEFAULT NULL,
+  `NAME` varchar(128) NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblFases` (
-  `fasId` INT NOT NULL AUTO_INCREMENT ,
-  `fasTipo` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`fasId`) )
-ENGINE = InnoDB;
+--
+-- Dumping data for table `threads`
+--
 
+LOCK TABLES `threads` WRITE;
+/*!40000 ALTER TABLE `threads` DISABLE KEYS */;
+/*!40000 ALTER TABLE `threads` ENABLE KEYS */;
+UNLOCK TABLES;
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblProyectos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblProyectos` ;
+--
+-- Table structure for table `rwlock_instances`
+--
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblProyectos` (
-  `proId` INT NOT NULL AUTO_INCREMENT ,
-  `proNombre` VARCHAR(45) NOT NULL ,
-  `proDescripcion` VARCHAR(45) NOT NULL ,
-  `proFechaPostulacion` VARCHAR(45) NOT NULL ,
-  `proFechaInicio` VARCHAR(45) NULL ,
-  `proFechaFinal` VARCHAR(45) NULL ,
-  `proCantidadUsuarios` VARCHAR(45) NULL ,
-  `proCantidadMaximoUsuarios` VARCHAR(45) NOT NULL ,
-  `proCantidadMinimaUsuarios` VARCHAR(45) NOT NULL ,
-  `proEstado` INT NOT NULL DEFAULT 1 ,
-  `proFaseId` INT NOT NULL ,
-  PRIMARY KEY (`proId`) ,
-  INDEX `fk_tblProyectos_tblFases1` (`proFaseId` ASC) ,
-  CONSTRAINT `fk_tblProyectos_tblFases1`
-    FOREIGN KEY (`proFaseId` )
-    REFERENCES `FactoryPage`.`tblFases` (`fasId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `rwlock_instances`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rwlock_instances` (
+  `NAME` varchar(128) NOT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL,
+  `WRITE_LOCKED_BY_THREAD_ID` int(11) DEFAULT NULL,
+  `READ_LOCKED_BY_COUNT` int(10) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `rwlock_instances`
+--
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblUsuarios_X_tblProyectos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblUsuarios_X_tblProyectos` ;
+LOCK TABLES `rwlock_instances` WRITE;
+/*!40000 ALTER TABLE `rwlock_instances` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rwlock_instances` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblUsuarios_X_tblProyectos` (
-  `usuProId` INT NOT NULL AUTO_INCREMENT ,
-  `usuProUsuarioId` INT(11) NOT NULL ,
-  `usuProProyectosId` INT NOT NULL ,
-  `usuProRoles` INT NOT NULL ,
-  PRIMARY KEY (`usuProId`) ,
-  INDEX `fkUsuariosProyectosProyectosId` (`usuProProyectosId` ASC) ,
-  INDEX `fkUsuariosProyectosUsuariosId` (`usuProUsuarioId` ASC) ,
-  CONSTRAINT `fkUsuariosProyectosUsuariosId`
-    FOREIGN KEY (`usuProUsuarioId` )
-    REFERENCES `FactoryPage`.`tblUsuarios` (`usuId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fkUsuariosProyectosProyectosId`
-    FOREIGN KEY (`usuProProyectosId` )
-    REFERENCES `FactoryPage`.`tblProyectos` (`proId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+--
+-- Table structure for table `setup_consumers`
+--
 
+DROP TABLE IF EXISTS `setup_consumers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `setup_consumers` (
+  `NAME` varchar(64) NOT NULL,
+  `ENABLED` enum('YES','NO') NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblIntereses`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblIntereses` ;
+--
+-- Dumping data for table `setup_consumers`
+--
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblIntereses` (
-  `intId` INT NOT NULL AUTO_INCREMENT ,
-  `intNombre` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`intId`) )
-ENGINE = InnoDB;
+LOCK TABLES `setup_consumers` WRITE;
+/*!40000 ALTER TABLE `setup_consumers` DISABLE KEYS */;
+INSERT INTO `setup_consumers` VALUES ('events_waits_current','YES'),('events_waits_history','YES'),('events_waits_history_long','YES'),('events_waits_summary_by_thread_by_event_name','YES'),('events_waits_summary_by_event_name','YES'),('events_waits_summary_by_instance','YES'),('file_summary_by_event_name','YES'),('file_summary_by_instance','YES');
+/*!40000 ALTER TABLE `setup_consumers` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `events_waits_summary_global_by_event_name`
+--
 
--- -----------------------------------------------------
--- Table `FactoryPage`.`tblUsuarios_X_tblIntereses`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `FactoryPage`.`tblUsuarios_X_tblIntereses` ;
+DROP TABLE IF EXISTS `events_waits_summary_global_by_event_name`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_waits_summary_global_by_event_name` (
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `COUNT_STAR` bigint(20) unsigned NOT NULL,
+  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE  TABLE IF NOT EXISTS `FactoryPage`.`tblUsuarios_X_tblIntereses` (
-  `usuIntId` INT NOT NULL AUTO_INCREMENT ,
-  `tblUsuarios_usuId` INT(11) NOT NULL ,
-  `tblIntereses_intId` INT NOT NULL ,
-  PRIMARY KEY (`usuIntId`) ,
-  INDEX `fk_tblUsuarios_has_tblIntereses_tblIntereses1` (`tblIntereses_intId` ASC) ,
-  INDEX `fk_tblUsuarios_has_tblIntereses_tblUsuarios1` (`tblUsuarios_usuId` ASC) ,
-  CONSTRAINT `fk_tblUsuarios_has_tblIntereses_tblUsuarios1`
-    FOREIGN KEY (`tblUsuarios_usuId` )
-    REFERENCES `FactoryPage`.`tblUsuarios` (`usuId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tblUsuarios_has_tblIntereses_tblIntereses1`
-    FOREIGN KEY (`tblIntereses_intId` )
-    REFERENCES `FactoryPage`.`tblIntereses` (`intId` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+--
+-- Dumping data for table `events_waits_summary_global_by_event_name`
+--
 
+LOCK TABLES `events_waits_summary_global_by_event_name` WRITE;
+/*!40000 ALTER TABLE `events_waits_summary_global_by_event_name` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events_waits_summary_global_by_event_name` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `setup_instruments`
+--
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+DROP TABLE IF EXISTS `setup_instruments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `setup_instruments` (
+  `NAME` varchar(128) NOT NULL,
+  `ENABLED` enum('YES','NO') NOT NULL,
+  `TIMED` enum('YES','NO') NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `setup_instruments`
+--
+
+LOCK TABLES `setup_instruments` WRITE;
+/*!40000 ALTER TABLE `setup_instruments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `setup_instruments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `performance_timers`
+--
+
+DROP TABLE IF EXISTS `performance_timers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `performance_timers` (
+  `TIMER_NAME` enum('CYCLE','NANOSECOND','MICROSECOND','MILLISECOND','TICK') NOT NULL,
+  `TIMER_FREQUENCY` bigint(20) DEFAULT NULL,
+  `TIMER_RESOLUTION` bigint(20) DEFAULT NULL,
+  `TIMER_OVERHEAD` bigint(20) DEFAULT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `performance_timers`
+--
+
+LOCK TABLES `performance_timers` WRITE;
+/*!40000 ALTER TABLE `performance_timers` DISABLE KEYS */;
+INSERT INTO `performance_timers` VALUES ('CYCLE',NULL,NULL,NULL),('NANOSECOND',NULL,NULL,NULL),('MICROSECOND',NULL,NULL,NULL),('MILLISECOND',NULL,NULL,NULL),('TICK',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `performance_timers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `file_instances`
+--
+
+DROP TABLE IF EXISTS `file_instances`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `file_instances` (
+  `FILE_NAME` varchar(512) NOT NULL,
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `OPEN_COUNT` int(10) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `file_instances`
+--
+
+LOCK TABLES `file_instances` WRITE;
+/*!40000 ALTER TABLE `file_instances` DISABLE KEYS */;
+/*!40000 ALTER TABLE `file_instances` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `file_summary_by_instance`
+--
+
+DROP TABLE IF EXISTS `file_summary_by_instance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `file_summary_by_instance` (
+  `FILE_NAME` varchar(512) NOT NULL,
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `COUNT_READ` bigint(20) unsigned NOT NULL,
+  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
+  `SUM_NUMBER_OF_BYTES_READ` bigint(20) unsigned NOT NULL,
+  `SUM_NUMBER_OF_BYTES_WRITE` bigint(20) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `file_summary_by_instance`
+--
+
+LOCK TABLES `file_summary_by_instance` WRITE;
+/*!40000 ALTER TABLE `file_summary_by_instance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `file_summary_by_instance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `file_summary_by_event_name`
+--
+
+DROP TABLE IF EXISTS `file_summary_by_event_name`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `file_summary_by_event_name` (
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `COUNT_READ` bigint(20) unsigned NOT NULL,
+  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
+  `SUM_NUMBER_OF_BYTES_READ` bigint(20) unsigned NOT NULL,
+  `SUM_NUMBER_OF_BYTES_WRITE` bigint(20) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `file_summary_by_event_name`
+--
+
+LOCK TABLES `file_summary_by_event_name` WRITE;
+/*!40000 ALTER TABLE `file_summary_by_event_name` DISABLE KEYS */;
+/*!40000 ALTER TABLE `file_summary_by_event_name` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `events_waits_summary_by_instance`
+--
+
+DROP TABLE IF EXISTS `events_waits_summary_by_instance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_waits_summary_by_instance` (
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL,
+  `COUNT_STAR` bigint(20) unsigned NOT NULL,
+  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
+  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `events_waits_summary_by_instance`
+--
+
+LOCK TABLES `events_waits_summary_by_instance` WRITE;
+/*!40000 ALTER TABLE `events_waits_summary_by_instance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events_waits_summary_by_instance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `events_waits_current`
+--
+
+DROP TABLE IF EXISTS `events_waits_current`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_waits_current` (
+  `THREAD_ID` int(11) NOT NULL,
+  `EVENT_ID` bigint(20) unsigned NOT NULL,
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `SOURCE` varchar(64) DEFAULT NULL,
+  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
+  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
+  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
+  `SPINS` int(10) unsigned DEFAULT NULL,
+  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
+  `OBJECT_NAME` varchar(512) DEFAULT NULL,
+  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL,
+  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
+  `OPERATION` varchar(16) NOT NULL,
+  `NUMBER_OF_BYTES` bigint(20) unsigned DEFAULT NULL,
+  `FLAGS` int(10) unsigned DEFAULT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `events_waits_current`
+--
+
+LOCK TABLES `events_waits_current` WRITE;
+/*!40000 ALTER TABLE `events_waits_current` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events_waits_current` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `events_waits_history_long`
+--
+
+DROP TABLE IF EXISTS `events_waits_history_long`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_waits_history_long` (
+  `THREAD_ID` int(11) NOT NULL,
+  `EVENT_ID` bigint(20) unsigned NOT NULL,
+  `EVENT_NAME` varchar(128) NOT NULL,
+  `SOURCE` varchar(64) DEFAULT NULL,
+  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
+  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
+  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
+  `SPINS` int(10) unsigned DEFAULT NULL,
+  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
+  `OBJECT_NAME` varchar(512) DEFAULT NULL,
+  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) NOT NULL,
+  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
+  `OPERATION` varchar(16) NOT NULL,
+  `NUMBER_OF_BYTES` bigint(20) unsigned DEFAULT NULL,
+  `FLAGS` int(10) unsigned DEFAULT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `events_waits_history_long`
+--
+
+LOCK TABLES `events_waits_history_long` WRITE;
+/*!40000 ALTER TABLE `events_waits_history_long` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events_waits_history_long` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-11-15 15:03:15
+CREATE DATABASE  IF NOT EXISTS `test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `test`;
+-- MySQL dump 10.13  Distrib 5.5.34, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: test
+-- ------------------------------------------------------
+-- Server version	5.5.34-0ubuntu0.13.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-11-15 15:03:15
+CREATE DATABASE  IF NOT EXISTS `videos` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
+USE `videos`;
+-- MySQL dump 10.13  Distrib 5.5.34, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: videos
+-- ------------------------------------------------------
+-- Server version	5.5.34-0ubuntu0.13.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-11-15 15:03:15
