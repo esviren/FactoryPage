@@ -67,7 +67,7 @@ class Proyectos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblFasesFas' => array(self::BELONGS_TO, 'TblFases', 'tblFases_fasId'),
+			'tblFasesFas' => array(self::BELONGS_TO, 'Fases', 'tblFases_fasId'),
 			'tblUsuariosXTblProyectoses' => array(self::HAS_MANY, 'TblUsuariosXTblProyectos', 'tblProyectos_proId'),
 		);
 	}

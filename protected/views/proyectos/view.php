@@ -28,6 +28,6 @@ $this->menu=array(
 		'proCantidadMaximoUsuarios',
 		'proCantidadMinimaUsuarios',
 		'proEstado',
-		'tblFases_fasId',
+		'tblFasesFas.fasTipo',
 	),
 )); ?>
