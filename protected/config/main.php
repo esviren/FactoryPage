@@ -9,7 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Factory Page',
 	'theme'=>'bootstrap',
-	'language'=>'es', // Este es el lenguaje en el que se muestran las cosas
+	'language'=>'es', // Este es el lenguaje en el que se muestran
 	'sourceLanguage'=>'en',
 
 	// preloading 'log' component
