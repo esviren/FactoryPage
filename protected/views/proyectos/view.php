@@ -1,33 +1,37 @@
 <?php
 $this->breadcrumbs=array(
-	'Proyectoses'=>array('index'),
-	$model->proId,
+	'Proyectos'=>array('index'),
+	$model->proNombre,
 );
 
 $this->menu=array(
-	array('label'=>'List Proyectos','url'=>array('index')),
-	array('label'=>'Create Proyectos','url'=>array('create')),
-	array('label'=>'Update Proyectos','url'=>array('update','id'=>$model->proId)),
-	array('label'=>'Delete Proyectos','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->proId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Proyectos','url'=>array('admin')),
+	array('label'=>'Listar Proyectos','url'=>array('index')),
+	array('label'=>'Crear Proyectos','url'=>array('create')),
+	array('label'=>'Actualizar Proyectos','url'=>array('update','id'=>$model->proId)),
+	array('label'=>'Eliminar Proyectos','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->proId),'confirm'=>'realmente desea eliminar este proyecto?')),
+	array('label'=>'Administrar Proyectos','url'=>array('admin')),
 );
 ?>
 
-<h1>View Proyectos #<?php echo $model->proId; ?></h1>
+<h1>Proyecto <?php echo $model->proNombre; ?></h1>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-	'data'=>$model,
-	'attributes'=>array(
-		'proId',
-		'proNombre',
-		'proDescripcion',
-		'proFechaPostulacion',
-		'proFechaInicio',
-		'proFechaFinal',
-		'proCantidadUsuarios',
-		'proCantidadMaximoUsuarios',
-		'proCantidadMinimaUsuarios',
-		'proEstado',
-		'tblFasesFas.fasTipo',
-	),
-)); ?>
+<div class="hero-unit">
+	
+	<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+		'data'=>$model,
+		'attributes'=>array(
+			'proId',
+			'proNombre',
+			'proDescripcion',
+			'proFechaPostulacion',
+			'proFechaInicio',
+			'proFechaFinal',
+			'proCantidadUsuarios',
+			'proCantidadMaximoUsuarios',
+			'proCantidadMinimaUsuarios',
+			'proEstado',
+			'tblFasesFas.fasTipo',
+		),
+	)); ?>
+</div>
+
