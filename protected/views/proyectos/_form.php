@@ -26,9 +26,10 @@
 	<?php echo $form->textFieldRow($model,'proCantidadMaximoUsuarios',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldRow($model,'proCantidadMinimaUsuarios',array('class'=>'span5')); ?>
-
-	<?php $fases = CHtml::listData(Fases::model()->findAll(),'fasId','fasTipo');?>
-	<?php echo $form->dropDownListRow($model, 'tblFases_fasId',$fases, array('class'=>'span5','empty'=>'seleccione fase')); ?>	
+	
+	<!-- Dropdownlist fases  -->
+	<?php //$fases = CHtml::listData(Fases::model()->findAll(),'fasId','fasTipo');?>
+	<?php //echo $form->dropDownListRow($model, 'tblFases_fasId',$fases, array('class'=>'span5','empty'=>'seleccione fase')); ?>	
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
