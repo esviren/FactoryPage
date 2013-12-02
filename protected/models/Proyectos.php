@@ -79,7 +79,8 @@ class Proyectos extends CActiveRecord
 	{
 		return array(
 			'proId' => 'Pro',
-			'proNombre' => 'Nombre',
+			'proNombre' => 'Nombre del proyecto.
+			',
 			'proDescripcion' => 'Descripcion',
 			'proFechaPostulacion' => 'Fecha de Postulacion',
 			'proFechaInicio' => 'Fecha de Inicio',

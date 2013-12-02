@@ -4,11 +4,6 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'List Aspirante','url'=>array('index')),
-	array('label'=>'Create Aspirante','url'=>array('create')),
-);
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
@@ -23,26 +18,17 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Aspirantes</h1>
-
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
+<h1>Administración de aspirantes</h1>
 </div><!-- search-form -->
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+
+
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'aspirante-grid',
+    'type'=>'striped bordered condensed',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
 	'columns'=>array(
-		'aspUsuario.usuNombre',
+        'aspUsuario.usuNombre',
 		'aspUsuario.usuApellido',
 		'aspUsuario.usuTelefono',
 		'aspUsuario.usuEmail',
@@ -51,8 +37,33 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'aspTecnologiaAD',
 		'aspExperienciaAgil.expEspesificacion',
 		'aspComentario',
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
+				array(
+                    'class'=>'bootstrap.widgets.TbButtonColumn',
+                    'template'=>'<table><tr><td> {delete} </td><td> {view} </td></tr></table>',
+                         'buttons'=>array
+                    	(
+                        'delete' => array
+                        (
+                            'label'=>'Borrar',
+                            'icon'=>'minus',
+                            'url'=>'Yii::app()->createUrl("aspirante/Delete", array("id"=>$data->aspId))',
+                                'options'=>array
+                                    (
+                                     'class'=>'btn btn-danger',
+                                    ),
+                        ),
+                        'view' => array
+                        (
+                            'label'=>'Ver',
+                            'icon'=>'eye-open',
+                            'url'=>'Yii::app()->createUrl("aspirante/view", array("id"=>$data->aspId))',
+                                'options'=>array
+                                    (
+                                     'class'=>'btn btn-success',
+                                    ),
+                        ),
+                )
 	),
-)); ?>
+))); 
+
+ ?> 

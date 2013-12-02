@@ -3,6 +3,25 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
+<?php if(Yii::app()->user->getFlash('registro')){ ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#registro').modal('show');
+        });
+    </script>
+<?php } ?>
+
+<div id="registro" class="modal hide fade">
+    <div class="modal-header">
+        <h3 class="btn-primary">Inscripción</h3>
+    </div>
+    <div class="modal-body">
+       Su solicitud ha sido enviada con exito, pronto se le informará la respuesta del lider de la fabrica. Gracias por su participación
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    </div>
+</div>
 
 <?php $this->beginWidget('bootstrap.widgets.TbHeroUnit',array(
     'heading'=>'Welcome to '.CHtml::encode(Yii::app()->name),
@@ -12,7 +31,7 @@ $this->pageTitle=Yii::app()->name;
 
 <?php $this->endWidget(); ?>
 
-<p>You may change the content of this page by modifying the following two files:</p>
+<p>Hola como estas</p>
 
 <ul>
     <li>View file: <code><?php echo __FILE__; ?></code></li>

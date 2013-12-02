@@ -5,13 +5,13 @@
  *
  * The followings are the available columns in table 'tblUsuarios_X_tblProyectos':
  * @property integer $usuProId
- * @property integer $tblUsuarios_usuId
- * @property integer $tblProyectos_proId
+ * @property integer $usuProUsuarioId
+ * @property integer $usuProProyectosId
  * @property integer $usuProRoles
  *
  * The followings are the available model relations:
- * @property TblProyectos $tblProyectosPro
- * @property TblUsuarios $tblUsuariosUsu
+ * @property TblProyectos $usuProProyectos
+ * @property TblUsuarios $usuProUsuario
  */
 class UsuariosXTblProyectos extends CActiveRecord
 {
@@ -41,11 +41,11 @@ class UsuariosXTblProyectos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('usuProId, tblUsuarios_usuId, tblProyectos_proId, usuProRoles', 'required'),
-			array('usuProId, tblUsuarios_usuId, tblProyectos_proId, usuProRoles', 'numerical', 'integerOnly'=>true),
+			array('usuProUsuarioId, usuProProyectosId, usuProRoles', 'required'),
+			array('usuProUsuarioId, usuProProyectosId, usuProRoles', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('usuProId, tblUsuarios_usuId, tblProyectos_proId, usuProRoles', 'safe', 'on'=>'search'),
+			array('usuProId, usuProUsuarioId, usuProProyectosId, usuProRoles', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,8 +57,8 @@ class UsuariosXTblProyectos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblProyectosPro' => array(self::BELONGS_TO, 'TblProyectos', 'tblProyectos_proId'),
-			'tblUsuariosUsu' => array(self::BELONGS_TO, 'TblUsuarios', 'tblUsuarios_usuId'),
+			'usuProProyectos' => array(self::BELONGS_TO, 'TblProyectos', 'usuProProyectosId'),
+			'usuProUsuario' => array(self::BELONGS_TO, 'TblUsuarios', 'usuProUsuarioId'),
 		);
 	}
 
@@ -69,8 +69,8 @@ class UsuariosXTblProyectos extends CActiveRecord
 	{
 		return array(
 			'usuProId' => 'Usu Pro',
-			'tblUsuarios_usuId' => 'Tbl Usuarios Usu',
-			'tblProyectos_proId' => 'Tbl Proyectos Pro',
+			'usuProUsuarioId' => 'Usu Pro Usuario',
+			'usuProProyectosId' => 'Usu Pro Proyectos',
 			'usuProRoles' => 'Usu Pro Roles',
 		);
 	}
@@ -87,8 +87,8 @@ class UsuariosXTblProyectos extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('usuProId',$this->usuProId);
-		$criteria->compare('tblUsuarios_usuId',$this->tblUsuarios_usuId);
-		$criteria->compare('tblProyectos_proId',$this->tblProyectos_proId);
+		$criteria->compare('usuProUsuarioId',$this->usuProUsuarioId);
+		$criteria->compare('usuProProyectosId',$this->usuProProyectosId);
 		$criteria->compare('usuProRoles',$this->usuProRoles);
 
 		return new CActiveDataProvider($this, array(

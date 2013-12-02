@@ -32,7 +32,7 @@ class AspiranteController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'users'=>array('*'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -59,7 +59,7 @@ class AspiranteController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($idp)
 	{
 		
 
@@ -73,12 +73,16 @@ class AspiranteController extends Controller
 		if(isset($_POST['Aspirante']))
 		{
 			$model->attributes=$_POST['Aspirante'];
+			$model->aspProyectoId = $idp;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->aspId));
+				Yii::app()->user->setFlash('registro', 'Postulacion exitosa');   
+				$this->redirect(array('site/index'));
 		}
+		
 
 		$this->render('create',array(
 			'model'=>$model,
+			'idp'=>$idp,
 			
 		));
 	}
@@ -114,17 +118,18 @@ class AspiranteController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
-		{
+
+		
+		
 			// we only allow deletion via POST request
+
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		
+		
 	}
 
 	/**
@@ -137,7 +142,6 @@ class AspiranteController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
 	/**
 	 * Manages all models.
 	 */

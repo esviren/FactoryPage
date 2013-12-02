@@ -24,6 +24,7 @@
 			'buttonType'=>'submit',
 			'type'=>'primary',
 			'label'=>'Search',
+			'id'=>'guardar',
 		)); ?>
 	</div>
 
