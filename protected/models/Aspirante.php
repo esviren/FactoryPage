@@ -46,7 +46,7 @@ class Aspirante extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('aspUsuarioId, aspEmpresa, aspProyectoId, aspTecnologiaAD, aspExperienciaAgilId, aspComentario', 'required'),
+			array('aspUsuarioId, aspEmpresa,aspTecnologiaAD, aspExperienciaAgilId, aspComentario', 'required'),
 			array('aspUsuarioId, aspProyectoId, aspExperienciaAgilId, aspEstado', 'numerical', 'integerOnly'=>true),
 			array('aspEmpresa', 'length', 'max'=>95),
 			array('aspTecnologiaAD', 'length', 'max'=>60),

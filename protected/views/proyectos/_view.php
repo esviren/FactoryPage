@@ -1,5 +1,5 @@
 <div class="view">
-	 <div class="well">
+	 <div class="hero-unit opcion" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('Proyectos/View', array('id'=>$data->proId))?>'">
 	 	<!--
 		<b><?php //echo CHtml::encode($data->getAttributeLabel('proId')); ?>:</b>
 		<?php //echo CHtml::link(CHtml::encode($data->proId),array('view','id'=>$data->proId)); ?>
@@ -8,7 +8,7 @@
 
 		<b><?php echo CHtml::encode($data->getAttributeLabel('proNombre')); ?>:</b>
 		<? //php echo CHtml::encode($data->proNombre); ?>
-		<?php echo CHtml::link(CHtml::encode($data->proNombre),array('view','id'=>$data->proId)); ?>
+		<?php echo CHtml::encode($data->proNombre); ?>
 		<br />
 
 		<b><?php echo CHtml::encode($data->getAttributeLabel('proDescripcion')); ?>:</b>
@@ -22,9 +22,9 @@
         ?>
 		<br />
         <div class="row-fluid">
-        	
+        <?php echo CHtml::link(CHtml::Button('Ver más', array('class'=>'btn btn-info')), array('Proyectos/View','id'=>$data->proId))."&nbsp;&nbsp;"; ?>	
         </div>
 
 	 </div>
-
+	
 </div>

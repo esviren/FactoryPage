@@ -57,4 +57,7 @@ $this->menu=array(
 		'aspComentario',
 		'aspEstado',
 	),
-)); ?>
+)); 
+?>
+<?php echo CHtml::link(CHtml::Button('Aceptar solicitud', array('class'=>'btn btn-success btn-large')), array('Usuproyecto/Aceptar','idU' => $model->aspUsuarioId, 'idP' => $model->aspProyectoId, 'Ida'=>$model->aspId))."&nbsp;&nbsp;"; ?>
+	<?php echo CHtml::link(CHtml::Button('Rechazar solucitud', array('class'=>'btn btn-danger btn-large')), array('aspirante/delete','id'=>$model->aspId)); ?>
