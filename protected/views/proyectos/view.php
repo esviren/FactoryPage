@@ -33,5 +33,12 @@ $this->menu=array(
 			'tblFasesFas.fasTipo',
 		),
 	)); ?>
+
+	<?php
+		if ($model->proCantidadUsuarios < $model->proCantidadMaximoUsuarios) {
+			echo CHtml::link(CHtml::Button('Postularme a este proyecto', array('class'=>'btn btn-success btn-large')), array('aspirante/create', 'idp'=>$model->proId))."&nbsp;&nbsp;"; } ?>
+		
+	 
+	<?php echo CHtml::link(CHtml::Button('Atras', array('class'=>'btn btn-danger btn-large')), array('Proyectos/index')); ?>
 </div>
 
