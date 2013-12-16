@@ -14,13 +14,14 @@ class UsuproyectoController extends Controller
 				$model->attributes=$_POST['UsuariosXTblProyectos'];
 				$model->usuProUsuarioId = $idU;
 				$model->usuProProyectosId = $idP;
-				if($model->save())
+				if($model->save()){
 
-							$proy = Proyectos::model()->findByPk($idP);
-							$proy->proCantidadUsuarios = $proy->proCantidadUsuarios + 1;
-							$proy->save();
+					$proy = Proyectos::model()->findByPk($idP);
+					$proy->proCantidadUsuarios = $proy->proCantidadUsuarios + 1;
+					$proy->save();
 					//Yii::app()->user->setFlash('registro', 'Postulacion exitosa');   
 					$this->redirect(array('aspirante/delete','id'=>$Ida));
+					}
 					//$this->loadModel($id)->delete();
 			}
 			

@@ -22,6 +22,7 @@
                 array('label'=>'Home', 'url'=>array('/site/index')),
                 array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
                 array('label'=>'Contact', 'url'=>array('/site/contact')),
+                array('label'=>'Eventos', 'url'=>array('/eventos/index')),
                 array('label'=>'Proyectos', 'url'=>array('/proyectos/index')),
                 array('label'=>'Aspirantes', 'url'=>array('/aspirante/admin')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
