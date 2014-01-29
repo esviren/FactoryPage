@@ -62,15 +62,20 @@ class Roles extends CActiveRecord
 		);
 	}
 
+	public function nombreEstado()
+	{
+		return $this->rolEstado == 1? "Activo":"Inactivo";
+	}
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
 	{
 		return array(
-			'rolId' => 'Rol',
-			'rolNombre' => 'Rol Nombre',
-			'rolEstado' => 'Rol Estado',
+			'rolId' => 'Id',
+			'rolNombre' => 'Nombre',
+			'rolEstado' => 'Estado',
 		);
 	}
 

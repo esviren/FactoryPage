@@ -17,17 +17,19 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
+		$user = Usuarios::model()->find('usuUsuario=?', array($this->username));
+
+		if($user === null)
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
+		elseif($this->password !== $user->usuPassword)
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
+		{			
 			$this->errorCode=self::ERROR_NONE;
+			$role = Roles::model()->findByPk($user->usuRole);
+			$this->setState('role', $role->rolNombre);	
+			$this->setState('userID', $user->usuId);
+		}
 		return !$this->errorCode;
 	}
 }

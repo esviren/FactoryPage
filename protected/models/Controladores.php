@@ -65,8 +65,8 @@ class Controladores extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'conId' => 'Con',
-			'conNombre' => 'Con Nombre',
+			'conId' => 'Id',
+			'conNombre' => 'Nombre',
 		);
 	}
 

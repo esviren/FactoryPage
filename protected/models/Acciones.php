@@ -66,8 +66,8 @@ class Acciones extends CActiveRecord
 	{
 		return array(
 			'accId' => 'Acc',
-			'accNombre' => 'Acc Nombre',
-			'accControladorId' => 'Acc Controlador',
+			'accNombre' => 'Nombre',
+			'accControladorId' => 'Controlador',
 		);
 	}
 
