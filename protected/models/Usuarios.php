@@ -50,10 +50,11 @@ class Usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			//array('usuImagen', 'file', 'types'=>'jpg, jpeg, png, gif'),
 			array('usuNombre, usuApellido, usuEmail, usuUsuario, usuPassword, usuRole', 'required'),
 			array('usuRole, usuEstado', 'numerical', 'integerOnly'=>true),
 			array('usuNombre, usuApellido, usuTelefono, usuEmail, usuUsuario, usuPassword', 'length', 'max'=>45),
-			array('usuImagen', 'length', 'max'=>255),
+			//array('usuImagen', 'file','types'=>'jpg, jpeg, png, gif'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('usuId, usuNombre, usuApellido, usuTelefono, usuEmail, usuUsuario, usuPassword, usuRole, usuEstado, usuImagen', 'safe', 'on'=>'search'),
@@ -72,8 +73,61 @@ class Usuarios extends CActiveRecord
 			'tblArticuloses1' => array(self::HAS_MANY, 'TblArticulos', 'artModificador'),
 			'usuRole0' => array(self::BELONGS_TO, 'TblRoles', 'usuRole'),
 			'tblUsuariosXTblIntereses' => array(self::HAS_MANY, 'TblUsuariosXTblIntereses', 'tblUsuarios_usuId'),
-			'tblUsuariosXTblProyectoses' => array(self::HAS_MANY, 'TblUsuariosXTblProyectos', 'tblUsuarios_usuId'),
+			'tblUsuariosXTblProyectoses' => array(self::HAS_MANY, 'TblUsuariosXTblProyectos', 'tblUsuarios_usuId2'),
 		);
+	}
+
+	public function nombreEstado()
+	{
+		return $this->usuEstado == 1? "Activo":"Inactivo";
+	}
+
+	public function nombreRol($id)
+	{
+		$model = new Usuarios;
+		$usuRol = new CDbCriteria();
+		$usuRol->select = 'rolNombre';
+		$usuRol->condition = 'rolId = :a';
+		$usuRol->params = array(':a'=>$id);
+		$usuarioRol = Roles::model()->findAll($usuRol);
+		
+		$Rol=$usuarioRol[0]->rolNombre;
+		
+		return $Rol;
+
+	}
+
+	// SELECT i.intNombre
+	// FROM tblIntereses AS i
+	// JOIN tblUsuarios_X_tblIntereses AS ui ON i.intId = ui.tblIntereses_intId
+	// JOIN tblUsuarios AS u ON u.usuId = ui.tblUsuarios_usuId
+	// WHERE ui.tblUsuarios_usuId =1
+
+	public function nombreInteres($id)
+	{
+		//$id=$_GET['id'];
+
+		$count = Yii::app()->db->createCommand('SELECT count(i.intNombre) FROM tblIntereses AS i JOIN tblUsuarios_X_tblIntereses AS ui ON i.intId = ui.tblIntereses_intId JOIN tblUsuarios AS u ON u.usuId = ui.tblUsuarios_usuId WHERE ui.tblUsuarios_usuId ='.$id.'')->queryScalar();
+
+		$list = Yii::app()->db->createCommand('SELECT i.intNombre FROM tblIntereses AS i JOIN tblUsuarios_X_tblIntereses AS ui ON i.intId = ui.tblIntereses_intId JOIN tblUsuarios AS u ON u.usuId = ui.tblUsuarios_usuId WHERE ui.tblUsuarios_usuId ='.$id.'')->queryAll();
+
+		
+		$dataProvider=new CSqlDataProvider($count, array(
+	    'totalItemCount'=>$list,
+	    'sort'=>array(
+	        'attributes'=>array(
+	             'Intereses',
+	        ),
+	    ),
+	    'pagination'=>array(
+	        'pageSize'=>10,
+   		),
+		));
+
+		// return $dataProvider;
+		// print_r('<pre>');
+		// print_r($dataProvider);
+		// exit();
 	}
 
 	/**
@@ -83,15 +137,15 @@ class Usuarios extends CActiveRecord
 	{
 		return array(
 			'usuId' => 'Usu',
-			'usuNombre' => 'Usu Nombre',
-			'usuApellido' => 'Usu Apellido',
-			'usuTelefono' => 'Usu Telefono',
-			'usuEmail' => 'Usu Email',
-			'usuUsuario' => 'Usu Usuario',
-			'usuPassword' => 'Usu Password',
-			'usuRole' => 'Usu Role',
-			'usuEstado' => 'Usu Estado',
-			'usuImagen' => 'Usu Imagen',
+			'usuNombre' => 'Nombre',
+			'usuApellido' => 'Apellido',
+			'usuTelefono' => 'Telefono',
+			'usuEmail' => 'Email',
+			'usuUsuario' => 'Usuario',
+			'usuPassword' => 'Password',
+			'usuRole' => 'Rol',
+			'usuEstado' => 'Estado',
+			'usuImagen' => 'Imagen',
 		);
 	}
 
