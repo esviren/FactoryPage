@@ -20,11 +20,14 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>'inicio', 'url'=>array('/site/index')),
-                array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>'Contactenos', 'url'=>array('/site/contact')),
+                array('label'=>'Registrar', 'url'=>array('/Usuarios/create')),
+                array('label'=>'Crear roles', 'url'=>array('/Roles/create'), 'visible'=>Yii::app()->Rules->isAdmin()),
+                array('label'=>'Intereses', 'url'=>array('/Intereses/create'), 'visible'=>Yii::app()->Rules->isAdmin()),
                 array('label'=>'Eventos', 'url'=>array('/eventos/index')),
                 array('label'=>'Proyectos', 'url'=>array('/proyectos/index')),
                 array('label'=>'Aspirantes', 'url'=>array('/aspirante/admin')),
+                array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
+                array('label'=>'Contactenos', 'url'=>array('/site/contact')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'cerrar sesion ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),
@@ -34,17 +37,23 @@
 
 <div class="container" id="page">
 
+    <?php if(isset($this->breadcrumbs)):?>
+        <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+            'links'=>$this->breadcrumbs,
+        )); ?><!-- breadcrumbs -->
+    <?php endif?>
 
+    <?php echo $content; ?>
 
-	<?php echo $content; ?>
+    <div class="clear"></div>
 
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
+    <div id="footer">
+        <center>    
+            Copyright &copy; <?php echo date('Y'); ?> Fábrica de Software SENA Medellín.<br/>
+            Todos los derechos Reservados.<br/>
+            <?php echo Yii::powered(); ?>
+        </center>
+    </div><!-- footer -->
 
 </div><!-- page -->
 
