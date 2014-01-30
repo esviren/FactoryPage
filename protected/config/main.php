@@ -7,7 +7,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 // CWebApplication properties can be configured here.
 return array(	
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Factory Page',
+	'name'=>'Fábrica de Software',
 	'theme'=>'bootstrap',
 	'language'=>'es', // Este es el lenguaje en el que se muestran
 	'sourceLanguage'=>'en',
@@ -37,6 +37,7 @@ return array(
 
 	// application components
 	'components'=>array(
+		'Rules'=>array('class'=>'UserRules'),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -65,7 +66,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=FactoryPage',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'userfabdev',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
