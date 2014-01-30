@@ -24,21 +24,120 @@ $this->pageTitle=Yii::app()->name;
 </div>
 
 <?php $this->beginWidget('bootstrap.widgets.TbHeroUnit',array(
-    'heading'=>'Welcome to '.CHtml::encode(Yii::app()->name),
+    'heading'=>'Bienvenido a '.CHtml::encode(Yii::app()->name),
 )); ?>
 
 <p>Congratulations! You have successfully created your Yii application.</p>
 
 <?php $this->endWidget(); ?>
 
-<p>Hola como estas</p>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="span4">
+           <div class="hero-unit">
+               <header>
+                   <hgroup>
+                       <h2>Quienes Somos?</h2>
+                   </hgroup>
+                   <p id="pQS">
+                        Aca va Quienes Somos......
+                   </p>
+                   <p id="pQS2" style="display:none">
+                       2 do Parrafo
+                   </p>
+                   <button id="btn1">Ver Mas</button>
+                   <button id="btn2" style="display:none">Ocultar</button>
+               </header>
+           </div> 
+        </div>
+        <div class="span4">
+            <div class="hero-unit">
+                <hgroup>
+                   <h2>Misión</h1>
+                    <p id="pM">
+                        Aca va la Mision......
+                   </p>
+                   <p id="pM2" style="display:none">
+                       2 do Parrafo
+                   </p>
+                   <button id="btn3">Ver Mas</button>
+                   <button id="btn4" style="display:none">Ocultar</button>
+               </hgroup>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="hero-unit">
+                <hgroup>
+                   <h2>Visión</h1>
+                    <p id="pV">
+                        Aca va la Vision......
+                   </p>
+                   <p id="pV2" style="display:none">
+                       2 do Parrafo
+                   </p>
+                   <button id="btn5">Ver Mas</button>
+                   <button id="btn6" style="display:none">Ocultar</button>
+               </hgroup>
+            </div>
+        </div>
+    </div>
+</div>
 
-<ul>
-    <li>View file: <code><?php echo __FILE__; ?></code></li>
-    <li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+<script>
+    $(document).ready(function()
+    {
+        var pQSomos = $('#pQS2');
+        var cssP = {
+            'display' : 'block',
+        };
+        var cssPO = {
+            'display' : 'none',
+        };
 
-<p>For more details on how to further develop this application, please read
-    the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-    Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-    should you have any questions.</p>
+        $('#btn1').click(function()
+        {
+            $(pQSomos).css(cssP);
+            $('#btn1').css('display','none');
+            $('#btn2').css('display','block');
+        });
+
+        $('#btn2').click(function()
+        {
+            $(pQSomos).css(cssPO);
+            $('#btn1').css('display','block');
+            $('#btn2').css('display','none');
+        });
+
+        var pM = $('#pM2');
+
+        $('#btn3').click(function()
+        {
+            $(pM).css(cssP);
+            $('#btn3').css('display','none');
+            $('#btn4').css('display','block');
+        });
+
+        $('#btn4').click(function()
+        {
+            $(pM).css(cssPO);
+            $('#btn3').css('display','block');
+            $('#btn4').css('display','none');
+        });
+
+        var pV = $('#pV2');
+
+        $('#btn5').click(function()
+        {
+            $(pV).css(cssP);
+            $('#btn5').css('display','none');
+            $('#btn6').css('display','block');
+        });
+
+        $('#btn6').click(function()
+        {
+            $(pV).css(cssPO);
+            $('#btn5').css('display','block');
+            $('#btn6').css('display','none');
+        });
+    });
+</script>
