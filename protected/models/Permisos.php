@@ -59,8 +59,8 @@ class Permisos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'perController' => array(self::BELONGS_TO, 'TblControladores', 'perControllerId'),
-			'perRoles' => array(self::BELONGS_TO, 'TblRoles', 'perRolesId'),
+			'perController' => array(self::BELONGS_TO, 'Controladores', 'perControllerId'),
+			'perRoles' => array(self::BELONGS_TO, 'Roles', 'perRolesId'),
 		);
 	}
 
@@ -71,10 +71,10 @@ class Permisos extends CActiveRecord
 	{
 		return array(
 			'perId' => 'Per',
-			'perRolesId' => 'Per Roles',
-			'perControllerId' => 'Per Controller',
-			'perAccion' => 'Per Accion',
-			'perEstado' => 'Per Estado',
+			'perRolesId' => 'Roles',
+			'perControllerId' => 'Controller',
+			'perAccion' => 'Accion',
+			'perEstado' => 'Estado',
 		);
 	}
 

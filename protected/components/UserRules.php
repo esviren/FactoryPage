@@ -1,7 +1,7 @@
 <?php
 class UserRules extends CApplicationComponent
 {
-	public function getRules($role, $controllerName)
+	/*public function getRules($role, $controllerName)
 	{
 		$role = Roles::model()->find("rolNombre = ?", array($role));
 		$controller = Controladores::model()->find('conNombre = ?', array($controllerName));
@@ -32,6 +32,97 @@ class UserRules extends CApplicationComponent
 		);
 
 		return $rules;
+	}
+	*/
+
+	private $actions = array('none');
+
+	public function getRules($controlador)
+	{
+		if(Yii::app()->user->isGuest)
+		{
+			$users = '*';
+		}
+		else
+		{
+			$user = Usuarios::model()->findByPk(Yii::app()->user->userID);
+			$role = Roles::model()->findByPk($user->usuRole);
+			$cr = new CDbCriteria;
+			$cr->condition='conNombre = :b';
+			$cr->params=array(':b'=>$controlador);
+
+			$controller = Controladores::model()->find($cr);
+			
+			/*$rol = array();
+
+			foreach($role as $ro)
+			{
+				array_push($rol,$ro->attributes);
+			}
+			print_r("<prev>");
+			print_r($controller);
+			exit();
+
+			*/
+			
+
+
+
+			$permisos = Permisos::model()->findAll(
+				'perRolesId = ? and perControllerId = ? and perEstado <> "inactivo"',
+				array($role->rolId, $controller->conId));
+
+
+
+
+			foreach ($permisos as $key => $value)
+			{
+				$this->actions[] = $value->perAccion;
+			}
+			$users = $user->usuUsuario;
+		}
+
+		return array(
+			array('allow',
+				'actions'=>$this->actions,
+				'users'=>array($users),
+			),
+			array('deny',
+				'users'=>array('*'),
+			),
+		);
+	}
+
+	public function setNewActions($actions)
+	{
+		if(!is_array($actions))
+		{
+			return;
+		}
+		else
+		{
+			$this->actions = $actions;
+		}
+	}
+
+	public function isAdmin()
+	{
+		if(Yii::app()->user->isGuest)
+		{
+			return false;
+		}
+		else
+		{
+			$role = Roles::model()->find('rolNombre = ?', array(Yii::app()->user->role));
+			if($role->rolEstado === '1' && $role->rolNombre === 'Directivos')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 ?>
