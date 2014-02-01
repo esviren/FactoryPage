@@ -46,14 +46,14 @@ $this->menu=array(
 							<td><?php echo CHtml::link(CHtml::button('Registrar controladores', 
 							array('class'=>'boton btn btn-large', 'id'=>'btn1', 'onmouseover'=>'moveForward("bnt1")')), array('controladores/create')); ?><br><br></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td><?php echo CHtml::link(CHtml::button('Asignar permisos a rol  ', 
 							array('class'=>'boton btn btn-large', 'id'=>'btn2', 'onmouseover'=>'moveForward("btn2")')), array('')); ?><br><br></td>
 						</tr>
 						<tr>
 							<td><?php echo CHtml::link(CHtml::button('Quitar permisos a rol    ', 
 							array('class'=>'boton btn btn-large', 'id'=>'btn3', 'onmouseover'=>'moveForward("btn3")')), array('')); ?><br><br></td>
-						</tr>
+						</tr> -->
 					</table>
 				</div>
 			</div>

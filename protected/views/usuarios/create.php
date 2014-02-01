@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Usuarios','url'=>array('index')),
 	array('label'=>'Manage Usuarios','url'=>array('admin')),
+	array('label'=>'Actualizar Usuarios','url'=>array('update','id'=>$model->usuId)),
 );
 ?>
 

@@ -2607,3 +2607,1171 @@ Stack trace:
 REQUEST_URI=/FactoryPage/index.php?r=eventos/index
 HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
 ---
+2014/01/30 13:26:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'FactoryPage.tblEventos' doesn't exist. La sentencia SQL ejecutada fue: SHOW FULL COLUMNS FROM `tblEventos`.
+in /var/www/FactoryPage/protected/views/eventos/index.php (17)
+in /var/www/FactoryPage/protected/controllers/EventosController.php (133)
+in /var/www/FactoryPage/index.php (13)
+2014/01/30 13:26:16 [error] [exception.CDbException] exception 'CDbException' with message 'La tabla "tblEventos" definida en la clase active record "Eventos" no se ha podido encontrar en la base de datos.' in /var/www/yii/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Eventos))
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1601): CActiveRecord->getTableSchema()
+#3 /var/www/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#4 /var/www/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#5 /var/www/yii/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#6 /var/www/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#7 /var/www/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#8 /var/www/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#9 /var/www/yii/framework/web/CBaseController.php(147): CListView->init()
+#10 /var/www/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#11 /var/www/FactoryPage/protected/views/eventos/index.php(17): CBaseController->widget('bootstrap.widge...', Array)
+#12 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#13 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#14 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#15 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#16 /var/www/FactoryPage/protected/controllers/EventosController.php(133): CController->render('index', Array)
+#17 /var/www/yii/framework/web/actions/CInlineAction.php(49): EventosController->actionIndex()
+#18 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#19 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#20 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#21 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#22 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#23 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#24 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#25 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#27 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('eventos/index')
+#28 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#29 /var/www/FactoryPage/index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/FactoryPage/index.php?r=eventos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/30 14:26:04 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/30 14:26:22 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 08:46:04 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 08:54:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('aspirante/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=aspirante/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=site/login
+---
+2014/01/31 08:56:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('aspirante/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=aspirante/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2014/01/31 08:56:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "controladores/create"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('controladores/c...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/FactoryPage/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/FactoryPage/index.php?r=controladores/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Roles/create
+---
+2014/01/31 08:56:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "controladores/index"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('controladores/i...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/FactoryPage/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/FactoryPage/index.php?r=controladores/index
+---
+2014/01/31 08:57:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "controladores/create"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('controladores/c...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/FactoryPage/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/FactoryPage/index.php?r=controladores/create
+---
+2014/01/31 09:02:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('acciones/view')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=acciones/view&id=6
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Acciones/create&controllerId=3
+---
+2014/01/31 09:17:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('acciones/view')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=acciones/view&id=19
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=acciones/index
+---
+2014/01/31 09:17:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('acciones/view')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=acciones/view&id=19
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=acciones/index
+---
+2014/01/31 09:20:03 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Acciones/create')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/FactoryPage/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Acciones/create
+---
+2014/01/31 09:23:28 [error] [exception.CException] exception 'CException' with message 'RolesController no ha podido encontrar la vista "view" solicitada.' in /var/www/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#1 /var/www/FactoryPage/protected/controllers/RolesController.php(57): CController->render('view', Array)
+#2 [internal function]: RolesController->actionView('2')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(RolesController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(RolesController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('roles/view')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/FactoryPage/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/FactoryPage/index.php?r=roles/view&id=2
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=roles/admin
+---
+2014/01/31 09:27:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('eventos/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=eventos/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Eventos/View&id=2
+---
+2014/01/31 09:27:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2014/01/31 09:30:20 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 09:39:26 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 09:39:38 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 09:42:10 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (109)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 09:45:43 [error] [exception.CException] exception 'CException' with message 'RolesController no ha podido encontrar la vista "view" solicitada.' in /var/www/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#1 /var/www/FactoryPage/protected/controllers/RolesController.php(57): CController->render('view', Array)
+#2 [internal function]: RolesController->actionView('1')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(RolesController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(RolesController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('roles/view')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/FactoryPage/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/FactoryPage/index.php?r=roles/view&id=1
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=roles/admin
+---
+2014/01/31 09:47:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ddmin" solicitada.' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('ddmin')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('ddmin')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/ddmin')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/FactoryPage/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/ddmin
+---
+2014/01/31 09:49:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/delete')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?ajax=usuarios-grid&id=4&r=usuarios%2Fdelete
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=usuarios/admin
+---
+2014/01/31 09:49:58 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`FactoryPage3`.`tblUsuarios_X_tblIntereses`, CONSTRAINT `fk_tblUsuarios_has_tblIntereses_tblUsuarios1` FOREIGN KEY (`tblUsuarios_usuId`) REFERENCES `tblUsuarios` (`usuId`) ON DELETE NO ACTION ). La sentencia SQL ejecutada fue: DELETE FROM `tblUsuarios` WHERE `tblUsuarios`.`usuId`=4.
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (289)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 09:49:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`FactoryPage3`.`tblUsuarios_X_tblIntereses`, CONSTRAINT `fk_tblUsuarios_has_tblIntereses_tblUsuarios1` FOREIGN KEY (`tblUsuarios_usuId`) REFERENCES `tblUsuarios` (`usuId`) ON DELETE NO ACTION ). The SQL statement executed was: DELETE FROM `tblUsuarios` WHERE `tblUsuarios`.`usuId`=4' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1802): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1222): CActiveRecord->deleteByPk('4')
+#2 /var/www/FactoryPage/protected/controllers/UsuariosController.php(289): CActiveRecord->delete()
+#3 [internal function]: UsuariosController->actionDelete('4')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/CController.php(1116): CFilterChain->run()
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#18 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/delete')
+#19 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /var/www/FactoryPage/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/FactoryPage/index.php?ajax=usuarios-grid&id=4&r=usuarios%2Fdelete
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=usuarios/admin
+---
+2014/01/31 10:00:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Intereses/creat...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Intereses/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=intereses/admin
+---
+2014/01/31 10:08:43 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('intereses/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=intereses/index
+---
+2014/01/31 10:12:59 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Acciones/create')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Acciones/create&controllerId=1
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=controladores/create
+---
+2014/01/31 10:13:03 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Acciones/create')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Acciones/create&controllerId=1
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=controladores/create
+---
+2014/01/31 10:13:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Roles/create')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Roles/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Acciones/create&controllerId=1
+---
+2014/01/31 10:13:09 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Roles/create')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Roles/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Roles/create
+---
+2014/01/31 10:13:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Roles/create')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Roles/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 10:16:02 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('controladores/c...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=controladores/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Roles/create
+---
+2014/01/31 10:20:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. La sentencia SQL ejecutada fue: SELECT * FROM `tblPermisos` `t` WHERE perControllerId = ? and perAccion = ?.
+in /var/www/FactoryPage/protected/controllers/AccionesController.php (151)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 10:20:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `tblPermisos` `t` WHERE perControllerId = ? and perAccion = ?' in /var/www/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/FactoryPage/protected/controllers/AccionesController.php(151): CActiveRecord->findAll('perControllerId...', Array)
+#4 [internal function]: AccionesController->actionDelete('42')
+#5 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AccionesController), Array)
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccionesController), Object(ReflectionMethod), Array)
+#7 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#16 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('acciones/delete')
+#17 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/FactoryPage/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/FactoryPage/index.php?r=acciones/delete&id=42
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=acciones/view&id=42
+---
+2014/01/31 10:20:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/AccionesController.php:202
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/AccionesController.php(56): AccionesController->loadModel('42')
+#1 [internal function]: AccionesController->actionView('42')
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AccionesController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AccionesController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('acciones/view')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=acciones/view&id=42
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Acciones/create&controllerId=2
+---
+2014/01/31 10:24:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('asignar')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Permisos/asigna...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Permisos/asignar&rol=1
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Roles/create
+---
+2014/01/31 10:25:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('asignar')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Permisos/asigna...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Permisos/asignar&rol=1
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Roles/create
+---
+2014/01/31 10:30:43 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=permisos/asignar&rol=1&controlador=7
+---
+2014/01/31 10:30:46 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('aspirante/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=aspirante/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2014/01/31 10:30:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=aspirante/admin
+---
+2014/01/31 10:33:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('eventos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=eventos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=controladores/create
+---
+2014/01/31 10:33:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=eventos/index
+---
+2014/01/31 10:33:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('aspirante/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=aspirante/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2014/01/31 10:34:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('eventos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=eventos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Acciones/create&controllerId=9
+---
+2014/01/31 10:35:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('eventos/create')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=eventos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=eventos/index
+---
+2014/01/31 10:36:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Roles/create
+---
+2014/01/31 10:36:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/index')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/index
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Acciones/create&controllerId=9
+---
+2014/01/31 10:36:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('proyectos/creat...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=proyectos/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=proyectos/index
+---
+2014/01/31 10:58:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('aspirante/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=aspirante/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=site/login
+---
+2014/01/31 10:59:18 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 10:59:19 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 10:59:57 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 10:59:57 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:00:51 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:00:51 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:01:10 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:01:10 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:01:27 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:01:27 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:01:38 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:01:38 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:02:07 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:03:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:03:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:03:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:03:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:03:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:03:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/admin')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/admin
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:05:02 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/FactoryPage/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:05:52 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/FactoryPage/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:05:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:06:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:06:06 [error] [exception.CException] exception 'CException' with message 'La propiedad "Usuarios"."id" no se encuentra definida.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('id')
+#1 /var/www/FactoryPage/protected/views/usuarios/create.php(10): CActiveRecord->__get('id')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#6 /var/www/FactoryPage/protected/controllers/UsuariosController.php(189): CController->render('create', Array)
+#7 /var/www/yii/framework/web/actions/CInlineAction.php(49): UsuariosController->actionCreate()
+#8 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#17 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Usuarios/create')
+#18 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /var/www/FactoryPage/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Usuarios/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=permisos/asignar&rol=3&controlador=2
+---
+2014/01/31 11:06:11 [error] [exception.CException] exception 'CException' with message 'La propiedad "Usuarios"."id" no se encuentra definida.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('id')
+#1 /var/www/FactoryPage/protected/views/usuarios/create.php(10): CActiveRecord->__get('id')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/Factor...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/Factor...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/Factor...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#6 /var/www/FactoryPage/protected/controllers/UsuariosController.php(189): CController->render('create', Array)
+#7 /var/www/yii/framework/web/actions/CInlineAction.php(49): UsuariosController->actionCreate()
+#8 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#17 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Usuarios/create')
+#18 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /var/www/FactoryPage/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/FactoryPage/index.php?r=Usuarios/create
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=permisos/asignar&rol=3&controlador=2
+---
+2014/01/31 11:06:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:07:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:07:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:08:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
+2014/01/31 11:08:46 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (235)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:08:47 [warning] [application] Error al establecer unsafe al atributo "usuImagen" de "Usuarios".
+in /var/www/FactoryPage/protected/controllers/UsuariosController.php (268)
+in /var/www/FactoryPage/index.php (13)
+2014/01/31 11:08:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/view')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/FactoryPage/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/view&id=2
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=usuarios/update&id=2
+---
+2014/01/31 11:08:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/FactoryPage/protected/controllers/UsuariosController.php:334
+Stack trace:
+#0 /var/www/FactoryPage/protected/controllers/UsuariosController.php(216): UsuariosController->loadModel('')
+#1 [internal function]: UsuariosController->actionUpdate('', false)
+#2 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuariosController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/update')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/FactoryPage/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/FactoryPage/index.php?r=usuarios/update&id=
+HTTP_REFERER=http://localhost/FactoryPage/index.php?r=Usuarios/create
+---
