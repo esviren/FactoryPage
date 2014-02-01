@@ -13,10 +13,10 @@ $this->pageTitle=Yii::app()->name;
 
 <div id="registro" class="modal hide fade">
     <div class="modal-header">
-        <h3 class="btn-primary">Inscripción</h3>
+      <h3 class="btn-primary">Inscripción</h3>
     </div>
     <div class="modal-body">
-       Su solicitud ha sido enviada con exito, pronto se le informará la respuesta del lider de la fabrica. Gracias por su participación
+      Su solicitud ha sido enviada con exito, pronto se le informará la respuesta del lider de la fabrica. Gracias por su participación
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
@@ -27,7 +27,7 @@ $this->pageTitle=Yii::app()->name;
     'heading'=>'Bienvenido a '.CHtml::encode(Yii::app()->name),
 )); ?>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<!-- <p>Eslogan</p> -->
 
 <?php $this->endWidget(); ?>
 
@@ -40,10 +40,11 @@ $this->pageTitle=Yii::app()->name;
                        <h2>Quienes Somos?</h2>
                    </hgroup>
                    <p id="pQS">
-                        Aca va Quienes Somos......
+                      Practicantes que participan en un espacio de desarrollo real,
                    </p>
                    <p id="pQS2" style="display:none">
-                       2 do Parrafo
+                      Sena proveedor Sena, es decir, productos internos para el Sena, así que cualquier proyecto ya sea de cualquier 
+                      centro o regional es bienvenido. <br><br><br><br>
                    </p>
                    <button id="btn1">Ver Mas</button>
                    <button id="btn2" style="display:none">Ocultar</button>
@@ -55,10 +56,10 @@ $this->pageTitle=Yii::app()->name;
                 <hgroup>
                    <h2>Misión</h1>
                     <p id="pM">
-                        Aca va la Mision......
+                      Somos una fábrica de software orientada a la satisfacción y al compromiso con sus clientes;
                    </p>
                    <p id="pM2" style="display:none">
-                       2 do Parrafo
+                      que ofrece soluciones integrales en sistemas de información de manera innovadora, eficiente, eficaz, ágil, rentable y competitiva, con equipos auto-organizados interesados en crear comunidad dentro y fuera del SENA.
                    </p>
                    <button id="btn3">Ver Mas</button>
                    <button id="btn4" style="display:none">Ocultar</button>
@@ -70,10 +71,11 @@ $this->pageTitle=Yii::app()->name;
                 <hgroup>
                    <h2>Visión</h1>
                     <p id="pV">
-                        Aca va la Vision......
+                      Seremos una fábrica de software reconocida a nivel nacional e internacional, 
                    </p>
                    <p id="pV2" style="display:none">
-                       2 do Parrafo
+                      con equipos auto-organizados, excelencia en desarrollo de software y en prácticas ágiles, brindando un producto de 
+                      excelente calidad, comprometidos con el servicio al cliente y la formación integral de su talento humano. <br><br>
                    </p>
                    <button id="btn5">Ver Mas</button>
                    <button id="btn6" style="display:none">Ocultar</button>

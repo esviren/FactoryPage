@@ -10,7 +10,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Registrar Nuevo Controladore</h1>
+<h1>Registrar Nuevo Controladores</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'dataProvider'=>$dataProvider,)); ?>
 

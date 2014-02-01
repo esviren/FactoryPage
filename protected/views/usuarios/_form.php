@@ -66,10 +66,11 @@
 <?php $this->endWidget(); ?>
 
 <script type="text/javascript">
-	function test(nombre){
-	alert("hola " + nombre);
-}
 
+
+/**
+Funcion para checkear los checkbox segun el interes por usuario q haya en la bd.
+**/
 <?php if(Yii::app()->controller->action->id == 'update') { ?>
 $(function(){	
 	verificarCheckbox();

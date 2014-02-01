@@ -1,6 +1,6 @@
 <?php
 
-class AccionesController extends Controller
+class ControladoresController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -15,7 +15,7 @@ class AccionesController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			//'postOnly + delete', // we only allow deletion via POST request
+			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -26,7 +26,7 @@ class AccionesController extends Controller
 	 */
 	public function accessRules()
 	{
-		return Yii::app()->Rules->getRules("Acciones");
+		return Yii::app()->Rules->getRules("Controladores");
 	}
 
 	/**
@@ -44,75 +44,41 @@ class AccionesController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($controllerId)
+	public function actionCreate()
 	{
-		$model=new Acciones;
-		//$model->accControladorId = $controllerId;
+		$model=new Controladores;
 
-		if(isset($_POST['Acciones']))
+		if(isset($_POST['Controladores']))
 		{
-			$model->attributes=$_POST['Acciones'];
-			$model->accControladorId = $controllerId;
-
-			if($this->validateAction($model->accNombre, $controllerId))
+			$model->attributes = $_POST['Controladores'];
+			if($this->validateController($model->conNombre))
 			{
-				Yii::app()->user->setFlash('act', 'Ya existe');
+				Yii::app()->user->setFlash('ctrl', 'Ya existe');
 			}
 			else
 			{
 				if($model->save())
 				{
-					Yii::app()->user->setFlash('act', 'No existe');
+					Yii::app()->user->setFlash('ctrl', 'No existe');
 				}
 			}
 		}
-		$criterio = new CDbCriteria();
-		$criterio->compare('accControladorId', $controllerId);
-
-		$dataProvider = new CActiveDataProvider('acciones', array('criteria'=>$criterio));
+		$dataProvider = new CActiveDataProvider('Controladores');
 		$this->render('create', array('model'=>$model, 'dataProvider'=>$dataProvider,));
 	}
 
-	public function validateAction($nombre, $controlador)
+	public function validateController($nombre)
 	{
-		$model = Acciones::model()->findAll('accNombre = ? and accControladorId = ?', array($nombre, $controlador));
+		$nombre = Controladores::model()->findAll('conNombre = ?', array($nombre));
 
-		if(count($model) > 0)
-			return true;
-		else
-			return false;
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-		$accion = $model->accNombre;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Acciones']))
+		if(count($nombre) > 0)
 		{
-			$model->attributes=$_POST['Acciones'];
-			if($model->save())
-			{
-				$permiso = Permisos::model()->find('perControllerId = ? and perAccion = ?',
-							 array($model->accControladorId, $accion));
-				$permiso->perAccion = $model->accNombre;
-				$permiso->save();
-				$this->redirect(array('create','controllerId'=>$model->accControladorId));
-			}
-
+			return true;
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -120,27 +86,18 @@ class AccionesController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	/*public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		/*if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));*/
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+	*/
 
-		$permisos = Permisos::model()->findAll('perControllerId = ? and perAccion = ?',
-					array($model->accControladorId, $model->accNombre));
-		// borramos permiso por permiso
-		if(count($permisos) > 0){				
-			foreach ($permisos as $key => $value) {
-				$permisoAct = Permisos::model()->find('perId = ?', array($value->perId));
-				$permisoAct->delete();
-			}
-		}
-
-		$this->loadModel($id)->delete();
-		Yii::app()->user->setFlash('actionDeleted', 'Accion elimindada correctamente.');
-		$this->redirect(array('controladores/create'));
+	public function actionAdmin(){
+		$this->render('admin');
 	}
 
 	/**
@@ -148,37 +105,19 @@ class AccionesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Acciones');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Acciones('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Acciones']))
-			$model->attributes=$_GET['Acciones'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
+		$this->render('index');
 	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Acciones the loaded model
+	 * @return Controladores the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Acciones::model()->findByPk($id);
+		$model=Controladores::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -186,11 +125,11 @@ class AccionesController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Acciones $model the model to be validated
+	 * @param Controladores $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='acciones-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='roles-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

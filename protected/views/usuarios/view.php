@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Usuarios','url'=>array('index')),
-	array('label'=>'Create Usuarios','url'=>array('create')),
-	array('label'=>'Update Usuarios','url'=>array('update','id'=>$model->usuId)),
-	array('label'=>'Delete Usuarios','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->usuId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Usuarios','url'=>array('admin')),
+	array('label'=>'Listar Usuarios','url'=>array('index')),
+	array('label'=>'Crear Usuarios','url'=>array('create')),
+	array('label'=>'Actualizar Usuarios','url'=>array('update','id'=>$model->usuId)),
+	array('label'=>'Borrar Usuarios','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->usuId),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Usuarios','url'=>array('admin')),
 );
 ?>
 
@@ -51,10 +51,6 @@ $this->menu=array(
 		array(
 			'name'=>'usuEstado',
 			'value'=>$model->nombreEstado(),
-		),
-		array(
-			'name'=>'Intereses',
-			'value'=>$model->nombreInteres($model->usuId),
 		),
 	),
 )); ?>
