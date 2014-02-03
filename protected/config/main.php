@@ -63,7 +63,7 @@ return array(
 		*/
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=FactoryPage',
+			'connectionString' => 'mysql:host=localhost;dbname=FactoryPage3',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => 'root',

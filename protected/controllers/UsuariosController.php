@@ -114,7 +114,7 @@ class UsuariosController extends Controller
 				if($this->validateUser($model->usuEmail, true))
 				{
 					$mensaje = "Ya hay un usuario registrado con ese email!";
-					Yii::app()->user->setFlash('Registro', $mensaje);
+					Yii::app()->user->setFlash('Error', $mensaje);
 				}
 				else
 				{

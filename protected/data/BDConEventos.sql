@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `FactoryPage` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
-USE `FactoryPage`;
+CREATE DATABASE  IF NOT EXISTS `FactoryPage3` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
+USE `FactoryPage3`;
 -- MySQL dump 10.13  Distrib 5.5.34, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: FactoryPage
@@ -344,7 +344,7 @@ CREATE TABLE `tbl_departamento` (
 
 LOCK TABLES `tbl_departamento` WRITE;
 /*!40000 ALTER TABLE `tbl_departamento` DISABLE KEYS */;
-INSERT INTO `tbl_departamento` VALUES ('05','ANTIOQUIA',''),('08','ATLÁNTICO',''),('11','BOGOTÁ',''),('13','BOLÍVAR',''),('15','BOYACÁ',''),('17','CALDAS',''),('18','CAQUETÁ',''),('19','CAUCA',''),('20','CESAR',''),('23','CÓRDOBA',''),('25','CUNDINAMARCA',''),('27','CHOCÓ',''),('41','HUILA',''),('44','LA GUAJIRA',''),('47','META',''),('50','MAGDALENA',''),('52','NORTE DE SANTANDER',''),('54','NARIÑO',''),('63','QUINDÍO',''),('66','RISARALDA',''),('68','SANTANDER',''),('70','SUCRE',''),('73','TOLIMA',''),('76','VALLEDELCAUCA',''),('81','ARAUCA',''),('85','CASANARE',''),('86','PUTUMAYO',''),('88','ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA',''),('91','AMAZONAS',''),('94','GUAINÍA',''),('95','GUAVIARE',''),('97','VAUPÉS',''),('99','VICHADA','');
+INSERT INTO `tbl_departamento` VALUES ('05','ANTIOQUIA','1'),('08','ATLÁNTICO','1'),('11','BOGOTÁ','1'),('13','BOLÍVAR','1'),('15','BOYACÁ','1'),('17','CALDAS','1'),('18','CAQUETÁ','1'),('19','CAUCA','1'),('20','CESAR','1'),('23','CÓRDOBA','1'),('25','CUNDINAMARCA','1'),('27','CHOCÓ','1'),('41','HUILA','1'),('44','LA GUAJIRA','1'),('47','META','1'),('50','MAGDALENA','1'),('52','NORTE DE SANTANDER','1'),('54','NARIÑO','1'),('63','QUINDÍO','1'),('66','RISARALDA','1'),('68','SANTANDER','1'),('70','SUCRE','1'),('73','TOLIMA','1'),('76','VALLEDELCAUCA','1'),('81','ARAUCA','1'),('85','CASANARE','1'),('86','PUTUMAYO','1'),('88','ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA','1'),('91','AMAZONAS','1'),('94','GUAINÍA','1'),('95','GUAVIARE','1'),('97','VAUPÉS','1'),('99','VICHADA','1');
 /*!40000 ALTER TABLE `tbl_departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -494,7 +494,7 @@ CREATE TABLE `tblExperinciaAgil` (
 
 LOCK TABLES `tblExperinciaAgil` WRITE;
 /*!40000 ALTER TABLE `tblExperinciaAgil` DISABLE KEYS */;
-INSERT INTO `tblExperinciaAgil` VALUES (1,'baja',''),(2,'media',''),(3,'alta','');
+INSERT INTO `tblExperinciaAgil` VALUES (1,'baja','1'),(2,'media','1'),(3,'alta','1');
 /*!40000 ALTER TABLE `tblExperinciaAgil` ENABLE KEYS */;
 UNLOCK TABLES;
 

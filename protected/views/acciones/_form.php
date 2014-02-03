@@ -8,9 +8,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<?php echo $form->textFieldRow($model,'accNombre',array('class'=>'span5','maxlength'=>50)); ?>
-
-	<?php echo $form->textFieldRow($model,'accControladorId',array('class'=>'span5')); ?>
-
+	
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',

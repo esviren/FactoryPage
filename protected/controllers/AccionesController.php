@@ -48,6 +48,8 @@ class AccionesController extends Controller
 	{
 		$model=new Acciones;
 		//$model->accControladorId = $controllerId;
+		$control = new Controladores;
+		$control->conId = $controllerId;
 
 		if(isset($_POST['Acciones']))
 		{
