@@ -106,4 +106,30 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	
+	public function actionRecuperarContrasena()
+	{
+		$model = new RecuperarContrasena;
+		$msg = '';
+		
+		if(isset($_POST['RecuperarContrasena']))
+		{
+			$model->attributes = $_POST['RecuperarContrasena'];
+			if(!$model->validate())
+			{
+				$msg = "<strong class='text-error'>Error al enviar la información</strong>";
+			}
+			else
+			{
+				$modelU = Usuarios::model()->findByAttributes('usuUsuario, usuEmail');
+				$criteria = new CDbCriteria();
+				$criteria->select = "usuUsuario, usuEmail";
+				$criteria->condition = "usuUsuario=:a AND usuEmail=:b";
+				$criteria->params = array(":a"=>$model->usuUsuario, ':b'=>$model->usuEmail);
+				$usu = Usuarios::model()->find($criteria);
+			}
+		}
+		
+		$this->render('recuperarContrasena', array('model' => $model, 'msg' => $msg));
+	}
 }

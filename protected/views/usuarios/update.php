@@ -6,10 +6,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Usuarios','url'=>array('index')),
-	array('label'=>'Create Usuarios','url'=>array('create')),
-	array('label'=>'View Usuarios','url'=>array('view','id'=>$model->usuId)),
-	array('label'=>'Manage Usuarios','url'=>array('admin')),
+	array('label'=>'Listar Usuarios','url'=>array('index'), 'visible'=>Yii::app()->Rules->isAdmin()),
+	array('label'=>'Crear Usuarios','url'=>array('create'), 'visible'=>Yii::app()->Rules->isAdmin()),
+	array('label'=>'Ver Detalle','url'=>array('view','id'=>$model->usuId)),
+	array('label'=>'Administrar Usuarios','url'=>array('admin'), 'visible'=>Yii::app()->Rules->isAdmin()),
 );
 ?>
 <?php

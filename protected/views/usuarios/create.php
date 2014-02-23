@@ -4,10 +4,12 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
+$a = Yii::app()->user->isGuest? '9999999' : Yii::app()->user->getId();
+
 $this->menu=array(
-	array('label'=>'List Usuarios','url'=>array('index')),
-	array('label'=>'Manage Usuarios','url'=>array('admin')),
-	array('label'=>'Actualizar Usuarios','url'=>array('update','id'=>$model->usuId)),
+	array('label'=>'Listar Usuarios','url'=>array('index'), 'visible'=>Yii::app()->Rules->isAdmin()),
+	array('label'=>'Administrar Usuarios','url'=>array('admin'), 'visible'=>Yii::app()->Rules->isAdmin()),
+	array('label'=>'Actualizar Usuarios','url'=>array('update', 'id'=>$a), 'visible'=>Yii::app()->Rules->isAdmin()),
 );
 ?>
 

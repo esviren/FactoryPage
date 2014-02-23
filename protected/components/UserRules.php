@@ -124,5 +124,25 @@ class UserRules extends CApplicationComponent
 			}
 		}
 	}
+
+	public function isNoAdmin()
+	{
+		if(Yii::app()->user->isGuest)
+		{
+			return false;
+		}
+		else
+		{
+			$role = Roles::model()->find('rolNombre = ?', array(Yii::app()->user->role));
+			if($role->rolEstado === '1' && $role->rolNombre === 'Miembro Comunidad' || $role->rolNombre === 'Admin CMS' || $role->rolNombre === 'Instructor Lider')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
 }
 ?>
