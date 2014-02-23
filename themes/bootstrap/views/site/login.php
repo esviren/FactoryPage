@@ -31,7 +31,7 @@ $this->breadcrumbs=array(
 	<?php echo $form->passwordFieldRow($model,'password',array(
         'hint'=>'Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>',
     )); ?>
-
+	<a href="<?php echo Yii::app()->createUrl('site/recuperarContrasena'); ?>">Recuperar Contraseña</a>
 	<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
 
 	<div class="form-actions">

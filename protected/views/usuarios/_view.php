@@ -17,7 +17,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('usuRole')); ?>:</b>
-	<?php echo CHtml::encode($data->nombreRol(Yii::app()->user->userID)); ?>
+	<?php echo CHtml::encode($data->rol->rolNombre); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('usuUsuario')); ?>:</b>

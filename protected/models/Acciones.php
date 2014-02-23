@@ -65,7 +65,7 @@ class Acciones extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'accId' => 'Acc',
+			'accId' => 'Id',
 			'accNombre' => 'Nombre',
 			'accControladorId' => 'Controlador',
 		);

@@ -56,9 +56,8 @@ class UsuariosXTblIntereses extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblInteresesInt' => array(self::BELONGS_TO, 'Intereses', 'tblIntereses_intId'),
-			'tblInteresesInt' => array(self::BELONGS_TO, 'Intereses', 'tblIntereses_intNombre'),
-			'tblUsuariosUsu' => array(self::BELONGS_TO, 'Usuarios', 'tblUsuarios_usuId'),
+			'InteresesInt' => array(self::BELONGS_TO, 'Intereses', 'tblIntereses_intId'),
+			'UsuariosUsu' => array(self::BELONGS_TO, 'Usuarios', 'tblUsuarios_usuId'),
 		);
 	}
 

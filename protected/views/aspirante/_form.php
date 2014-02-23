@@ -7,7 +7,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'aspUsuarioId',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'aspUsuarioId',array('disabled'=>true, 'class'=>'span5', 'placeholder'=>Yii::app()->user->name)); ?>
 
 	<?php echo $form->textFieldRow($model,'aspEmpresa',array('class'=>'span5','maxlength'=>95)); ?>
 		<?php //$lista = CHtml::listData(Proyectos::model()->findAll('proFaceId=?',array(1)));

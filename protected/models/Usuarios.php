@@ -69,11 +69,12 @@ class Usuarios extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblArticuloses' => array(self::HAS_MANY, 'TblArticulos', 'artAutor'),
-			'tblArticuloses1' => array(self::HAS_MANY, 'TblArticulos', 'artModificador'),
-			'usuRole0' => array(self::BELONGS_TO, 'TblRoles', 'usuRole'),
-			'tblUsuariosXTblIntereses' => array(self::HAS_MANY, 'TblUsuariosXTblIntereses', 'tblUsuarios_usuId'),
-			'tblUsuariosXTblProyectoses' => array(self::HAS_MANY, 'TblUsuariosXTblProyectos', 'tblUsuarios_usuId2'),
+			'tblArticuloses' => array(self::HAS_MANY, 'Articulos', 'artAutor'),
+			'tblArticuloses1' => array(self::HAS_MANY, 'Articulos', 'artModificador'),
+			'rol' => array(self::BELONGS_TO, 'Roles', 'usuRole'),
+			'UsuariosXIntereses' => array(self::HAS_MANY, 'UsuariosXTblIntereses', 'tblUsuarios_usuId'),
+			'tblUsuariosXTblProyectoses' => array(self::BELONGS_TO, 'UsuariosXTblProyectos', 'tblUsuarios_usuId2'),
+			'intUsuarios'=>array(self::HAS_MANY, 'Intereses', 'UsuariosXIntereses(tblIntereses_intId, tblUsuarios_usuId)'),
 		);
 	}
 
@@ -136,7 +137,7 @@ class Usuarios extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'usuId' => 'Usu',
+			'usuId' => 'Id',
 			'usuNombre' => 'Nombre',
 			'usuApellido' => 'Apellido',
 			'usuTelefono' => 'Telefono',
