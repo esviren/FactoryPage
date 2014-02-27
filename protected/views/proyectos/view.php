@@ -10,6 +10,7 @@ $this->menu=array(
 	array('label'=>'Actualizar Proyectos','url'=>array('update','id'=>$model->proId)),
 	array('label'=>'Eliminar Proyectos','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->proId),'confirm'=>'realmente desea eliminar este proyecto?')),
 	array('label'=>'Administrar Proyectos','url'=>array('admin')),
+	array('label'=>'Miembros de Proyecto','url'=>array('usuariosxProyectos','idProyec'=>$model->proId)),
 );
 ?>
 
@@ -35,7 +36,8 @@ $this->menu=array(
 	)); ?>
 
 	<?php
-		if ($model->proCantidadUsuarios < $model->proCantidadMaximoUsuarios) {
+		/*JDiaz, 19/02/2014, se modifica la comparacion para calcular la cantidad usuarios de manera mas acertada.*/
+		if ($model->proCantidadUsuarios <= $model->proCantidadMaximoUsuarios) {
 			echo CHtml::link(CHtml::Button('Postularme a este proyecto', array('class'=>'btn btn-success btn-large')), array('aspirante/create', 'idp'=>$model->proId))."&nbsp;&nbsp;"; } ?>
 		
 	 

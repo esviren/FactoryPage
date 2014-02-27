@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Aspirante','url'=>array('index')),
-	array('label'=>'Create Aspirante','url'=>array('create')),
-	array('label'=>'Update Aspirante','url'=>array('update','id'=>$model->aspId)),
-	array('label'=>'Delete Aspirante','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->aspId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Aspirante','url'=>array('admin')),
+	array('label'=>'Lista Aspirante','url'=>array('aspirante/admin')),
+	//array('label'=>'Create Aspirante','url'=>array('create')),
+	//array('label'=>'Update Aspirante','url'=>array('update','id'=>$model->aspId)),
+	//array('label'=>'Delete Aspirante','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->aspId),'confirm'=>'Are you sure you want to delete this item?')),
+	//array('label'=>'Manage Aspirante','url'=>array('admin')),
 );
 ?>
 
@@ -59,5 +59,17 @@ $this->menu=array(
 	),
 )); 
 ?>
-<?php echo CHtml::link(CHtml::Button('Aceptar solicitud', array('class'=>'btn btn-success btn-large')), array('Usuproyecto/Aceptar','idU' => $model->aspUsuarioId, 'idP' => $model->aspProyectoId, 'Ida'=>$model->aspId))."&nbsp;&nbsp;"; ?>
+/* JDiaz, se desactiva el boton cuando la cantidad maxima del Proyecto este completa. */
+<?php 
+$Proyecto = Proyectos::model()->findByPk($model->aspProyectoId);
+if($Proyecto->proCantidadUsuarios == $Proyecto->proCantidadMaximoUsuarios){
+	$this->widget('bootstrap.widgets.TbButton', array(
+    'label'=>'Aceptar solicitud',
+    'htmlOptions'=>array('class'=>'btn btn-success btn-large','disabled'=>true , 'data-content'=>'Se ha alcanzado la cantidad maxima de usuarios en este proyecto', 'rel'=>'popover','data-placement'=>'top'),
+    )); 
+
+}else{
+ echo CHtml::link(CHtml::Button('Aceptar solicitud', array('class'=>'btn btn-success btn-large')), array('Usuproyecto/Aceptar','idU' => $model->aspUsuarioId, 'idP' => $model->aspProyectoId, 'Ida'=>$model->aspId)); 	
+}
+?>&nbsp;&nbsp;
 	<?php echo CHtml::link(CHtml::Button('Rechazar solucitud', array('class'=>'btn btn-danger btn-large')), array('aspirante/delete','id'=>$model->aspId)); ?>

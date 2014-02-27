@@ -39,6 +39,7 @@ class UserRules extends CApplicationComponent
 
 	public function getRules($controlador)
 	{
+		
 		if(Yii::app()->user->isGuest)
 		{
 			$users = '*';
@@ -65,8 +66,6 @@ class UserRules extends CApplicationComponent
 
 			*/
 			
-
-
 
 			$permisos = Permisos::model()->findAll(
 				'perRolesId = ? and perControllerId = ? and perEstado <> "inactivo"',
@@ -144,5 +143,35 @@ class UserRules extends CApplicationComponent
 			}
 		}
 	}
+
+	public function isScrumMaster($idUser, $idProyec)
+	{
+		if(Yii::app()->user->isGuest)
+		{
+			return false;
+		}
+		else
+		{
+
+			$rolProyecto = UsuariosXTblProyectos::model()->find('usuProUsuarioId = ? AND usuProProyectosId = ?', array(Yii::app()->user->userID, $idProyec));
+
+			if(count($rolProyecto) > 0){
+
+			$Roles = Roles::model()->find('rolId=?',array($rolProyecto->usuProRoles));
+
+			if( $Roles->rolEstado === '1' && $Roles->rolNombre === 'Scrum Master')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			}else{
+				return false;
+			}
+		}
+	}
+
 }
 ?>
