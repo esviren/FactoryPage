@@ -26,23 +26,6 @@ class ProyectosController extends Controller
 	public function accessRules()
 	{
 		return Yii::app()->Rules->getRules("Proyectos");
-		/*return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('*'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);*/
 	}
 
 	/**
@@ -51,10 +34,29 @@ class ProyectosController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$this->ActualizarProyecto($id);
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
 	}
+
+	/* 
+    * JDiaz, 24/02/2014, 
+    * NOTA:este metodo es actualiza los datos del proyecto seleccionado con la totralidad de usuarios por proyecto,
+    * Parametros:  ActualizarProyecto('ID del proyecto')
+    */
+	public function ActualizarProyecto($id)
+    {
+    	$contador = 0;
+    	$UsuXPro=UsuariosXTblProyectos::model()->findAll('usuProProyectosId=?',array($id));
+		foreach ($UsuXPro as $value) {
+				$contador++;
+		}
+
+		$proy = $this->loadModel($id);
+        $proy->proCantidadUsuarios = $contador;
+		$proy->save();
+    }
 
 	/**
 	 * Creates a new model.
@@ -148,6 +150,15 @@ class ProyectosController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	public function actionUsuariosxProyectos($idProyec)
+	{
+
+		$UsuxProy = UsuariosXTblProyectos::model()->findAll('usuProProyectosId = ?',array($idProyec));
+		$Proyecto = Proyectos::model()->findByPk($idProyec);
+		$this->render('usuariosxProyectos',array('Proyecto'=>$Proyecto,'UsuxProy'=>$UsuxProy));
+	}
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

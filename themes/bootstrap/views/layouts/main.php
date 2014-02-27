@@ -27,7 +27,6 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
                 #array('label'=>'Usuarios', 'url'=>array('/Usuarios/create'), 'visible'=>!Yii::app()->Rules->isNoAdmin()),
                 array('label'=>'Usuarios', 'url'=>array('/Usuarios/'.$a), 'visible'=>!Yii::app()->Rules->isAdmin()),
                 array('label'=>'Usuarios', 'url'=>array('/Usuarios/create'), 'visible'=>Yii::app()->Rules->isAdmin()),
-
                 array('label'=>'Permisos', 'url'=>array('/Roles/create'), 'visible'=>Yii::app()->Rules->isAdmin()),
                 array('label'=>'Intereses', 'url'=>array('/Intereses/create'), 'visible'=>Yii::app()->Rules->isAdmin()),
                 array('label'=>'Eventos', 'url'=>array('/eventos/index')),

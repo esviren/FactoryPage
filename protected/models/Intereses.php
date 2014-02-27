@@ -44,8 +44,7 @@ class Intereses extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'UsuariosXIntereses' => array(self::HAS_MANY, 'UsuariosXTblIntereses', 'tblIntereses_intId'),
-			// 'usuarios' => array(self::HAS_MANY, 'Usuarios', array('tblUsuarios_usuId'=>'usuId'), 'through'=>'UsuariosXIntereses'),
+			'tblUsuariosXTblIntereses' => array(self::HAS_MANY, 'TblUsuariosXTblIntereses', 'tblIntereses_intId'),
 		);
 	}
 

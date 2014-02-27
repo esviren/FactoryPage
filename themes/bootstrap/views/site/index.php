@@ -11,6 +11,18 @@ $this->pageTitle=Yii::app()->name;
     </script>
 <?php } ?>
 
+
+
+
+<?php if(Yii::app()->user->getFlash('Advertencia')){ ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#Advertencia').modal('show');
+        });
+    </script>
+<?php } ?>
+
+
 <div id="registro" class="modal hide fade">
     <div class="modal-header">
       <h3 class="btn-primary">Inscripción</h3>
@@ -20,6 +32,18 @@ $this->pageTitle=Yii::app()->name;
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    </div>
+</div>
+
+<div id="Advertencia" class="modal hide fade">
+    <div class="modal-header">
+      <h3 class="btn-warning"><center>Advertencia</center></h3>
+    </div>
+    <div class="modal-body">
+      El usuario que esta registrando ya se encuentra postulado a este Proyecto.
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cerrar</button>
     </div>
 </div>
 
