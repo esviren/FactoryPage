@@ -1,0 +1,42 @@
+h1{
+	color: #FFFFFF;	
+}
+
+.scrollblock {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	height: 800px;
+}
+
+.foto {
+	background-attachment: fixed;
+	background-position:50% 0;
+	background-repeat: no-repeat;	
+	height: fixed ;
+	position: relative;
+}
+.shadow{
+	-webkit-box-shadow: 4px 3px 6px 0px rgba(50, 50, 50, 0.71);
+	-moz-box-shadow:    4px 3px 6px 0px rgba(50, 50, 50, 0.71);
+	box-shadow:         4px 3px 6px 0px rgba(50, 50, 50, 0.71);
+}
+
+.f0 {
+	background-image: url(../img/b0.jpg);
+}
+.f1 {
+	background-image: url(../img/b1.jpg);
+}
+.f2 {
+	background-image: url(../img/b2.jpg);
+}
+.f3 {
+	background-image: url(../img/b3.jpg);
+}
+.f4 {
+	background-image: url(../img/b4.jpg);
+}
+.f5 {
+	background-image: url(../img/b5.jpg);
+}
