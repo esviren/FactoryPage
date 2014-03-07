@@ -58,9 +58,19 @@ class AspiranteController extends Controller
 		{
 			$model->attributes=$_POST['Aspirante'];
 			$model->aspProyectoId = $idp;
+			$model->aspUsuarioId = Yii::app()->user->userID;
+
+			if(!$this->validateAspirante(Yii::app()->user->userID, $idp)){
+
 			if($model->save())
 				Yii::app()->user->setFlash('registro', 'Postulacion exitosa');   
 				$this->redirect(array('site/index'));
+				
+			}else{
+				Yii::app()->user->setFlash('Advertencia', 'Usuario existente');
+				$this->redirect(array('site/index'));
+			}
+
 		}
 		
 
@@ -69,6 +79,16 @@ class AspiranteController extends Controller
 			'idp'=>$idp,
 			
 		));
+	}
+
+	public function validateAspirante($id, $idp){
+		
+			$model = Aspirante::model()->find('aspUsuarioId=? and aspProyectoId=?',array($id, $idp));
+			$model2 = UsuariosXTblProyectos::model()->find('usuProUsuarioId=? and usuProProyectosId=?',array($id, $idp));
+			if(count($model) > 0 || count($model2) > 0)
+				return true;
+			else
+				return false;
 	}
 
 	/**

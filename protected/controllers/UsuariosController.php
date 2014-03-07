@@ -36,8 +36,11 @@ class UsuariosController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$list = Yii::app()->db->createCommand("SELECT i.intNombre FROM tblIntereses AS i JOIN tblUsuarios_X_tblIntereses AS ui ON i.intId = ui.tblIntereses_intId JOIN tblUsuarios AS u ON u.usuId = ui.tblUsuarios_usuId WHERE ui.tblUsuarios_usuId ='".$id."'")->queryAll();
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'list'=>$list,
 		));
 	}
 
@@ -103,7 +106,7 @@ class UsuariosController extends Controller
 		));
 		*/
 		$model = new Usuarios;
-		$interes=new Intereses;
+		$interes = new Intereses;
 		if(isset($_POST['Usuarios']))
 		{
 			$model->attributes=$_POST['Usuarios'];
@@ -246,6 +249,8 @@ class UsuariosController extends Controller
 
 				}
 
+				$usuXint2 = UsuariosXTblIntereses::model()->deleteAll('tblUsuarios_usuId=?', array($id));
+				
 				for ($i=0; $i < count($int[0]); $i++)
 				{
 					$usuXint=new UsuariosXTblIntereses;
@@ -253,17 +258,8 @@ class UsuariosController extends Controller
 					$usuXint->usuIntId=0;
 					$usuXint->tblUsuarios_usuId=Yii::app()->user->userID;
 					$usuXint->tblIntereses_intId=$int[0][$i];
-					// print_r($usuXint->tblUsuarios_usuId.' ');
-					// print_r($usuXint->tblIntereses_intId);
-				 // 	//echo ($int[0][$i]).'Hola';
-				 // 	print('<br>');
 					$usuXint->save();
-					//print_r($usuXint->tblIntereses_intId);
-				 	// echo ($int[0][$i]).'Hola';
-				 	// print('<br>');
 				}
-				//exit();
-				// exit();
 			}
 			$model->attributes=$_POST['Usuarios'];
 			$model->usuImagen=$Urlimage;
@@ -286,6 +282,10 @@ class UsuariosController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
+			$usuXint = UsuariosXTblIntereses::model()->deleteAll('tblUsuarios_usuId=?', array($id));
+			// print_r('<pre>');
+			// print_r($usuXint);
+			// exit;
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
@@ -301,6 +301,15 @@ class UsuariosController extends Controller
 	 */
 	public function actionIndex()
 	{
+		#Yii::import('application.extensions.phpmailer.*');
+		// Yii::import("ext.Mailer.*");
+		// $mail = new phpmailer(); 
+		// $mail->SetFrom("jstiven10@misena.edu.co", "Yo");
+		// $mail->Subject = "Asunto";
+		// $mail->MsgHTML("<<h1>Hola Correo</h1>");
+		// $mail->AddAddress("jstiven10@misena.edu.co", "Mi");
+		// $mail->send();
+
 		$dataProvider=new CActiveDataProvider('Usuarios');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

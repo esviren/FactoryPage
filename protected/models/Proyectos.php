@@ -56,9 +56,24 @@ class Proyectos extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('proId, proNombre, proDescripcion, proFechaPostulacion, proFechaInicio, proFechaFinal, proCantidadUsuarios, proCantidadMaximoUsuarios, proCantidadMinimaUsuarios, proEstado, tblFases_fasId', 'safe', 'on'=>'search'),
+			array('proCantidadMaximoUsuarios, proCantidadMinimaUsuarios','ValidoCantidadMax'),
 		);
 	}
 
+	/* 
+    * JDiaz, 20/02/2014, 
+    * NOTA:este metodo valida si la cantidad minima de usuarios es superior a la maxima,
+    * Parametros:  ValidoCantidadMax('atributos del campo validado')
+    */
+	public function ValidoCantidadMax($attributes)
+	{
+			if($this->proCantidadMaximoUsuarios < $this->proCantidadMinimaUsuarios){
+				if($attributes=='proCantidadMinimaUsuarios'){
+					$this->addError($attributes,'La cantidad minima de usuarios no puede ser superior a la maxima.');
+				}
+			}
+		
+	}
 	/**
 	 * @return array relational rules.
 	 */
@@ -79,8 +94,7 @@ class Proyectos extends CActiveRecord
 	{
 		return array(
 			'proId' => 'Pro',
-			'proNombre' => 'Nombre del proyecto.
-			',
+			'proNombre' => 'Nombre del proyecto.',
 			'proDescripcion' => 'Descripcion',
 			'proFechaPostulacion' => 'Fecha de Postulacion',
 			'proFechaInicio' => 'Fecha de Inicio',

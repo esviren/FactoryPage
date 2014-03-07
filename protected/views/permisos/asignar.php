@@ -50,9 +50,9 @@
 	<div class="Moption">
 		<div class="row">
 			<div class="span3">
-				<b>accId: </b>
+				<b>Id: </b>
 				<?php echo $acc->accId; ?><br>
-				<b>accNombre: </b>
+				<b>Nombre: </b>
 				<?php echo $acc->accNombre; ?>
 
 				<?php

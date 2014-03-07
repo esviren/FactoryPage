@@ -11,6 +11,18 @@ $this->pageTitle=Yii::app()->name;
     </script>
 <?php } ?>
 
+
+
+
+<?php if(Yii::app()->user->getFlash('Advertencia')){ ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#Advertencia').modal('show');
+        });
+    </script>
+<?php } ?>
+
+
 <div id="registro" class="modal hide fade">
     <div class="modal-header">
       <h3 class="btn-primary">Inscripción</h3>
@@ -20,6 +32,18 @@ $this->pageTitle=Yii::app()->name;
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    </div>
+</div>
+
+<div id="Advertencia" class="modal hide fade">
+    <div class="modal-header">
+      <h3 class="btn-warning"><center>Advertencia</center></h3>
+    </div>
+    <div class="modal-body">
+      El usuario que esta registrando ya se encuentra postulado a este Proyecto.
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cerrar</button>
     </div>
 </div>
 
@@ -46,8 +70,20 @@ $this->pageTitle=Yii::app()->name;
                       Sena proveedor Sena, es decir, productos internos para el Sena, así que cualquier proyecto ya sea de cualquier 
                       centro o regional es bienvenido. <br><br><br><br>
                    </p>
-                   <button id="btn1">Ver Mas</button>
-                   <button id="btn2" style="display:none">Ocultar</button>
+                   <div class="form-actions" id="btn1">
+						<?php $this->widget('bootstrap.widgets.TbButton',array(
+				            'buttonType'=>'submit',
+				            'type'=>'primary',
+				            'label'=>'Ver mas',
+				        )); ?>
+					</div>
+                   <div class="form-actions" id="btn2" style="display: none">
+						<?php $this->widget('bootstrap.widgets.TbButton',array(
+				            'buttonType'=>'submit',
+				            'type'=>'primary',
+				            'label'=>'Ocultar',
+				        )); ?>
+					</div>
                </header>
            </div> 
         </div>
@@ -61,8 +97,20 @@ $this->pageTitle=Yii::app()->name;
                    <p id="pM2" style="display:none">
                       que ofrece soluciones integrales en sistemas de información de manera innovadora, eficiente, eficaz, ágil, rentable y competitiva, con equipos auto-organizados interesados en crear comunidad dentro y fuera del SENA.
                    </p>
-                   <button id="btn3">Ver Mas</button>
-                   <button id="btn4" style="display:none">Ocultar</button>
+                   <div class="form-actions" id="btn3">
+						<?php $this->widget('bootstrap.widgets.TbButton',array(
+				            'buttonType'=>'submit',
+				            'type'=>'primary',
+				            'label'=>'Ver mas',
+				        )); ?>
+					</div>
+                   <div class="form-actions" id="btn4" style="display: none">
+						<?php $this->widget('bootstrap.widgets.TbButton',array(
+				            'buttonType'=>'submit',
+				            'type'=>'primary',
+				            'label'=>'Ocultar',
+				        )); ?>
+					</div>
                </hgroup>
             </div>
         </div>
@@ -77,8 +125,20 @@ $this->pageTitle=Yii::app()->name;
                       con equipos auto-organizados, excelencia en desarrollo de software y en prácticas ágiles, brindando un producto de 
                       excelente calidad, comprometidos con el servicio al cliente y la formación integral de su talento humano. <br><br>
                    </p>
-                   <button id="btn5">Ver Mas</button>
-                   <button id="btn6" style="display:none">Ocultar</button>
+                   <div class="form-actions" id="btn5">
+						<?php $this->widget('bootstrap.widgets.TbButton',array(
+				            'buttonType'=>'submit',
+				            'type'=>'primary',
+				            'label'=>'Ver mas',
+				        )); ?>
+					</div>
+                   <div class="form-actions" id="btn6" style="display: none">
+						<?php $this->widget('bootstrap.widgets.TbButton',array(
+				            'buttonType'=>'submit',
+				            'type'=>'primary',
+				            'label'=>'Ocultar',
+				        )); ?>
+					</div>
                </hgroup>
             </div>
         </div>

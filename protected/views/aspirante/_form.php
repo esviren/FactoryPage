@@ -7,7 +7,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'aspUsuarioId',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'aspUsuarioId',array('class'=>'span5','placeholder'=>Yii::app()->user->name, 'disabled'=>true)); ?>
 
 	<?php echo $form->textFieldRow($model,'aspEmpresa',array('class'=>'span5','maxlength'=>95)); ?>
 		<?php //$lista = CHtml::listData(Proyectos::model()->findAll('proFaceId=?',array(1)));
@@ -15,7 +15,7 @@
 	<?php
 	$proyect = Proyectos::model()->findByPk($idp); 
 	// $proyecto = CHtml::listData(Proyectos::model()->findAll(),'proId','proNombre');?>
-	<?php echo $form->textFieldRow($proyect,'proNombre',array('class'=>'span5','maxlength'=>60, 'disabled'=>'false')); ?>
+	<?php echo $form->textFieldRow($proyect,'proNombre',array('class'=>'span5','maxlength'=>60, 'disabled'=>true)); ?>
 	<?php echo $form->textFieldRow($model,'aspTecnologiaAD',array('class'=>'span5','maxlength'=>60)); ?>
 	<?php $experiencia = CHtml::listData(ExperinciaAgil::model()->findAll(),'expId','expEspesificacion');?>
 	<?php echo $form->radioButtonListRow($model, 'aspExperienciaAgilId', $experiencia, array()); ?>
